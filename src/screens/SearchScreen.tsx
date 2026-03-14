@@ -84,38 +84,39 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
+            {/* ─── HERO HEADER (Fixed) ─────────────────────────────────────── */}
+            {/* Bus background with dark overlay */}
+            <ImageBackground
+                source={require('../assets/image/header.png')}
+                style={styles.header}
+                imageStyle={styles.headerImage}
+                resizeMode="cover"
+            >
+                <LinearGradient
+                    colors={['transparent', 'rgba(10,20,35,0.55)', '#0f1923']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                    style={styles.gradientOverlay}
+                >
+                    {/* Search icon in white square */}
+                    <View style={styles.searchHeaderRow}>
+                        <View style={styles.searchIconBadge}>
+                            <Search width={24} height={24} />
+                        </View>
+                        <View style={styles.headerTextContainer}>
+                            <Text style={styles.heroTitle}>Search Buses</Text>
+                        </View>
+                    </View>
+                    <View><Text style={styles.heroSub}>Find your perfect ride</Text></View>
+                </LinearGradient>
+            </ImageBackground>
+
             {/* ─── Scrollable Content ─── */}
             <ScrollView
+                style={{ marginTop: -30 }}
                 contentContainerStyle={styles.scrollContent}
                 showsVerticalScrollIndicator={false}
             >
-                {/* ─── HERO HEADER ─────────────────────────────────────────────── */}
-                {/* Bus background with dark overlay */}
-                <ImageBackground
-                    source={require('../assets/image/header.png')}
-                    style={styles.header}
-                    imageStyle={styles.headerImage}
-                    resizeMode="cover"
-                >
-                    <LinearGradient
-                        colors={['transparent', 'rgba(10,20,35,0.55)', '#0f1923']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 0, y: 1 }}
-                        style={styles.gradientOverlay}
-                    >
-                        {/* Search icon in white square */}
-                        <View style={styles.searchHeaderRow}>
-                            <View style={styles.searchIconBadge}>
-                                <Search width={24} height={24} />
-                            </View>
-                            <View style={styles.headerTextContainer}>
-                                <Text style={styles.heroTitle}>Search Buses</Text>
-                            </View>
-                        </View>
-                        <View><Text style={styles.heroSub}>Find your perfect ride</Text></View>
-                    </LinearGradient>
-                </ImageBackground>
-
                 {/* ─── SEARCH CARD ──────────────────────────────────────────────── */}
                 {/* Floating white card overlapping the dark header */}
                 <View style={styles.searchCard}>
@@ -266,8 +267,8 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: THEME.colors.background },
     scrollContent: { paddingBottom: 20 },
-    header: { width: '100%', borderBottomLeftRadius: 20, borderBottomRightRadius: 20, overflow: 'hidden',alignContent:'center' },
-    headerImage: {width:"100%",},
+    header: { width: '100%',height:170, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, overflow: 'hidden',alignContent:'center' },
+    headerImage: {width:"100%",height:170},
 
     gradientOverlay: {
         paddingTop: 60,
@@ -275,6 +276,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
         borderRadius: 30,
+        height:170
     },
 
     // New header row styles
@@ -295,13 +297,13 @@ const styles = StyleSheet.create({
 
     headerTextContainer: { justifyContent: 'center' },
     heroTitle: { fontSize: 22, fontWeight: 'bold', color: '#FFF', marginTop: 1 },
-    heroSub: { fontSize: 14, color: '#0EA5E9', fontWeight: '500', marginLeft: 57, marginTop: -5 },
+    heroSub: { fontSize: 14, color: '#0EA5E9', fontWeight: '500', marginLeft: 52, marginTop: -5 },
 
     // Search card styles
     searchCard: {
         backgroundColor: '#FFF',
         marginHorizontal: 16,
-        marginTop: -70,            // Pull up over header
+        marginTop: 0,              // Handled by ScrollView
         borderRadius: 20,
         padding: 20,
         shadowColor: '#000',

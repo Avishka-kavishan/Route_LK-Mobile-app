@@ -1,6 +1,6 @@
 export const COLORS = {
   primary: '#2D31FA',      // Vibrant Blue
-  secondary: '#00D4FF',    // Cyan
+  secondary: '#0EA5E9',    // Cyan
   accent: '#FF7E5F',       // Coral/Sunset (for highlights)
   background: '#F8F9FE',   // Soft Gray/Blue background
   surface: '#FFFFFF',      // White
