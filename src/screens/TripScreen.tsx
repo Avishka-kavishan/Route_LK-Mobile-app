@@ -152,7 +152,14 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     header: { width: '100%', height: 170, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, overflow: 'hidden' },
-    headerImage: { width: "100%", height: 170 },
+    
+    headerImage: { width:"104%",
+        height:170,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft:-10},
+
     gradientOverlay: {
         paddingTop: 60,
         paddingBottom: 40,

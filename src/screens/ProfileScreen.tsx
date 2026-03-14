@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
+import LinearGradient from 'react-native-linear-gradient';
 
 const ProfileScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -29,7 +30,12 @@ const ProfileScreen = () => {
                     style={styles.header}
                     imageStyle={styles.headerImage}
                 >
-                    <View style={styles.headerOverlay}>
+                <LinearGradient
+                    colors={['transparent', 'rgba(10,20,35,0.55)', '#0f1923']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                    style={styles.gradientOverlay}
+                >
                         <View style={styles.headerTopRow}>
                             <View style={styles.profileIconBadge}>
                                 <Icon name="account" size={24} color={THEME.colors.primary} />
@@ -39,7 +45,7 @@ const ProfileScreen = () => {
                         <TouchableOpacity>
                             <Text style={styles.manageAccountText}>Manage your account</Text>
                         </TouchableOpacity>
-                    </View>
+                </LinearGradient>
                 </ImageBackground>
 
                 {/* ─── Profile Info ─── */}
@@ -105,19 +111,27 @@ const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        height: 220,
+        height:170, 
+        borderBottomLeftRadius: 30, 
+        borderBottomRightRadius: 30, 
         overflow: 'hidden',
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
+        alignContent:'center'
     },
     headerImage: {
+        width:"104%",
+        height:170,
         resizeMode: 'cover',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft:-10
     },
-    headerOverlay: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.3)',
+    gradientOverlay: {
         paddingTop: 60,
-        paddingHorizontal: 24,
+        paddingBottom: 80,
+        paddingHorizontal: 20,
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+        borderRadius: 30,
+        height:170
     },
     headerTopRow: {
         flexDirection: 'row',
