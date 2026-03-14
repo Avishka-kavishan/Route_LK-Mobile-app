@@ -36,7 +36,7 @@ const SignInScreen = () => {
         <View style={styles.container}>
             <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
             <ImageBackground
-                source={require('../assets/image/onboardningT.png')}
+                source={require('../assets/image/sign.png')}
                 style={styles.backgroundImage}
                 resizeMode="cover"
             >
@@ -99,6 +99,12 @@ const SignInScreen = () => {
                                 </TouchableOpacity>
                             </View>
 
+                            <View style={styles.dividerContainer}>
+                                <View style={styles.divider} />
+                                <Text style={styles.dividerText}>or sign up with</Text>
+                                <View style={styles.divider} />
+                            </View>
+
                             {/* Social Buttons */}
                             <View style={styles.socialContainer}>
                                 <TouchableOpacity style={styles.socialButton}>
@@ -110,6 +116,13 @@ const SignInScreen = () => {
                                 <TouchableOpacity style={styles.socialButton}>
                                     <Google width={28} height={28} />
                                 </TouchableOpacity>
+                            </View>
+                            {/* Footer */}
+                            <View style={styles.footer}>
+                                <Text style={styles.footerText}>don’t have an account? </Text>
+                                    <TouchableOpacity>
+                                    <Text style={styles.signInText}>Sign up</Text>
+                                    </TouchableOpacity>
                             </View>
                         </ScrollView>
                     </View>
@@ -125,7 +138,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         width: width,
-        height: height * 0.7, // Take up a good portion of the top
+        height: height, // Take up a good portion of the top
     },
     overlay: {
         flex: 1,
@@ -147,18 +160,18 @@ const styles = StyleSheet.create({
     cardContainer: {
         flex: 1,
         width: '100%',
-        marginTop: height * 0.1, // Offset to show more bus
     },
     card: {
         flex: 1,
         backgroundColor: '#FFFFFF',
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
+        marginTop: height * 0.4, // Responsive offset
     },
     cardContent: {
         paddingHorizontal: 24,
         paddingTop: 32,
-        paddingBottom: 40,
+        paddingBottom: 20, // Reduced from 80
         alignItems: 'center',
     },
     title: {
@@ -225,7 +238,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 20,
-        marginTop: 20,
+        marginTop: 0,
+        marginBottom: 10,
     },
     socialButton: {
         width: 60,
@@ -236,6 +250,37 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
+    },
+    dividerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
+        marginTop: 10,
+    },
+    divider: {
+        flex: 1,
+        height: 1,
+        backgroundColor: '#E5E7EB',
+    },
+    dividerText: {
+        paddingHorizontal: 16,
+        fontSize: 14,
+        color: '#6B7280',
+    },
+    footer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop:20
+    },
+    footerText: {
+        fontSize: 16,
+        color: '#4B5563',
+    },
+    signInText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: THEME.colors.secondary,
     },
 });
 
