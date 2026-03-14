@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import Profile from '../assets/svg/profile.svg';
+import RightArrow from '../assets/svg/rigtArrow.svg';
 
 const ProfileScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -53,7 +54,7 @@ const ProfileScreen = () => {
                 <View style={styles.profileInfoContainer}>
                     <View style={styles.avatarWrapper}>
                         <Image
-                            source={{ uri: 'https://i.pravatar.cc/150?u=sherina' }} // Placeholder
+                            source={require('../assets/image/profile.png')} // Placeholder
                             style={styles.avatar}
                         />
                     </View>
@@ -72,7 +73,7 @@ const ProfileScreen = () => {
                             onPress={() => navigation.navigate('Notifications')}
                         />
                         <ProfileOption label="My Wallet" />
-                        <ProfileOption label="Security" icon="shield-outline" />
+                        <ProfileOption label="Security" />
                         <ProfileOption label="Support" />
                         <ProfileOption label="Log out" isLogout />
                     </View>
@@ -98,7 +99,7 @@ const ProfileOption = ({
             {icon && <Icon name={icon} size={24} color="#1A1A2E" style={styles.optionIcon} />}
             <Text style={[styles.optionLabel, isLogout && styles.logoutLabel]}>{label}</Text>
         </View>
-        <Icon name="chevron-right" size={20} color="#1A1A2E" />
+        <RightArrow width={24} height={24} color="#1A1A2E" />
     </TouchableOpacity>
 );
 
