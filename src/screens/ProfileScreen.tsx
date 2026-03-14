@@ -1,4 +1,7 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../navigation/AppNavigator';
 import {
     View,
     Text,
@@ -13,6 +16,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 
 const ProfileScreen = () => {
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -37,7 +42,11 @@ const ProfileScreen = () => {
                     <Text style={styles.sectionTitle}>Account Settings</Text>
 
                     <ProfileOption icon="account-edit" label="Edit Profile" />
-                    <ProfileOption icon="bell" label="Notifications" />
+                    <ProfileOption 
+                        icon="bell" 
+                        label="Notifications" 
+                        onPress={() => navigation.navigate('Notifications')} 
+                    />
                     <ProfileOption icon="wallet" label="My Wallet" />
                     <ProfileOption icon="shield-check" label="Security" />
                     <ProfileOption icon="help-circle" label="Support" />
@@ -52,8 +61,8 @@ const ProfileScreen = () => {
     );
 };
 
-const ProfileOption = ({ icon, label }: { icon: string; label: string }) => (
-    <TouchableOpacity style={styles.option}>
+const ProfileOption = ({ icon, label, onPress }: { icon: string; label: string; onPress?: () => void }) => (
+    <TouchableOpacity style={styles.option} onPress={onPress} activeOpacity={0.7}>
         <View style={styles.optionLeft}>
             <Icon name={icon} size={24} color={THEME.colors.primary} />
             <Text style={styles.optionLabel}>{label}</Text>

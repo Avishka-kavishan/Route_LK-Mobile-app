@@ -9,12 +9,15 @@ import SeatSelectionScreen from '../screens/SeatSelectionScreen';
 import BookingSummaryScreen from '../screens/BookingSummaryScreen';
 import TabNavigator from './TabNavigator';
 
+import NotificationScreen from '../screens/NotificationScreen';
+
 export type RootStackParamList = {
     Splash: undefined;
     Main: undefined;
     BusList: { startPoint: string; endPoint: string; date: string; time: string };
     SeatSelection: { busId: string; busName: string; price: number };
     BookingSummary: { busId: string; selectedSeats: string[]; totalPrice: number };
+    Notifications: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -34,6 +37,7 @@ const AppNavigator = () => {
                 <Stack.Screen name="BusList" component={BusListScreen} />
                 <Stack.Screen name="SeatSelection" component={SeatSelectionScreen} />
                 <Stack.Screen name="BookingSummary" component={BookingSummaryScreen} />
+                <Stack.Screen name="Notifications" component={NotificationScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

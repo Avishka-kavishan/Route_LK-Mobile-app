@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
     View,
     Text,
@@ -115,7 +116,15 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                             </View>
 
                             {/* Notification bell */}
-                            <TouchableOpacity style={styles.bellButton}>
+                            <TouchableOpacity 
+                                style={styles.bellButton}
+                                onPress={() => {
+                                    console.log('Notification button pressed');
+                                    navigation.navigate('Notifications');
+                                }}
+                                hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
+                                activeOpacity={0.7}
+                            >
                                 <Notification width={40} height={40} />
                             </TouchableOpacity>
                         </View>
@@ -358,12 +367,13 @@ const styles = StyleSheet.create({
         color: '#0EA5E9',          // Teal highlight for "LK"
     },
     bellButton: {
-        width: 38,
-        height: 38,
-        borderRadius: 19,
+        width: 44,                  // Increased from 38 for better hit area
+        height: 44,                 // Increased from 38
+        borderRadius: 22,
         backgroundColor: 'rgba(255,255,255,0.12)',
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 10,                 // Ensure it's on top
     },
 
     // Hero text
