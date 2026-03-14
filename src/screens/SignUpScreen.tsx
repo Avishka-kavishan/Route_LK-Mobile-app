@@ -16,6 +16,12 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
 
+import Arrow from "../assets/svg/back.svg"
+import Apple from "../assets/svg/apple.svg"
+import Facebook from "../assets/svg/facebook.svg"
+import Google from "../assets/svg/google.svg"
+import Checkbox from "../assets/svg/Checkbox.svg"
+
 const SignUpScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     const [name, setName] = useState('');
@@ -41,7 +47,7 @@ const SignUpScreen = () => {
                             style={styles.backButton} 
                             onPress={() => navigation.goBack()}
                         >
-                            <Icon name="chevron-left" size={30} color="#1A1A2E" />
+                            <Arrow width={24} height={24} />
                         </TouchableOpacity>
                         <Text style={styles.headerTitle}>Create New Account</Text>
                     </View>
@@ -91,7 +97,7 @@ const SignUpScreen = () => {
                             activeOpacity={0.7}
                         >
                             <View style={[styles.checkbox, agree && styles.checkboxSelected]}>
-                                {agree && <Icon name="check" size={14} color="#FFF" />}
+                                {agree && <Checkbox width={20} height={20} />}
                             </View>
                             <Text style={styles.checkboxLabel}>
                                 Agree with <Text style={styles.termsText}>Terms & Conditions</Text>
@@ -118,13 +124,13 @@ const SignUpScreen = () => {
                     {/* Social Buttons */}
                     <View style={styles.socialContainer}>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Icon name="apple" size={28} color="#000" />
+                            <Apple width={28} height={28} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Icon name="facebook" size={28} color="#1877F2" />
+                            <Facebook width={28} height={28} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Icon name="google" size={28} color="#EA4335" />
+                            <Google width={28} height={28} />
                         </TouchableOpacity>
                     </View>
 
@@ -156,7 +162,7 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 60,
         marginBottom: 30,
     },
     backButton: {
@@ -211,9 +217,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:"#FFFFFF"
     },
     checkboxSelected: {
-        backgroundColor: THEME.colors.secondary,
+        backgroundColor: THEME.colors.background,
         borderColor: THEME.colors.secondary,
     },
     checkboxLabel: {

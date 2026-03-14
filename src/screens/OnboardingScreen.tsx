@@ -20,8 +20,7 @@ const OnboardingScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const handleLogin = () => {
-        // Navigate to Login or Main for now
-        navigation.navigate('Main');
+        navigation.navigate('SignIn');
     };
 
     const handleJoin = () => {

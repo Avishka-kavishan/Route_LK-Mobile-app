@@ -12,6 +12,7 @@ import TabNavigator from './TabNavigator';
 import NotificationScreen from '../screens/NotificationScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import SignInScreen from '../screens/SignInScreen';
 
 export type RootStackParamList = {
     Splash: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
     Notifications: undefined;
     Onboarding: undefined;
     SignUp: undefined;
+    SignIn: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -44,6 +46,7 @@ const AppNavigator = () => {
                 <Stack.Screen name="Notifications" component={NotificationScreen} />
                 <Stack.Screen name="Onboarding" component={OnboardingScreen} />
                 <Stack.Screen name="SignUp" component={SignUpScreen} />
+                <Stack.Screen name="SignIn" component={SignInScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
