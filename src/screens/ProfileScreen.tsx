@@ -42,9 +42,9 @@ const ProfileScreen = () => {
                             </View>
                             <Text style={styles.headerTitle}>Profile</Text>
                         </View>
-                        <TouchableOpacity>
+                        <View>
                             <Text style={styles.manageAccountText}>Manage your account</Text>
-                        </TouchableOpacity>
+                        </View>
                 </LinearGradient>
                 </ImageBackground>
 
@@ -139,13 +139,13 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
     profileIconBadge: {
-        width: 32,
-        height: 32,
+        width: 40,
+        height: 40,
         backgroundColor: '#FFF',
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 10,
+        marginRight: 12
     },
     headerTitle: {
         fontSize: 24,
@@ -153,10 +153,11 @@ const styles = StyleSheet.create({
         color: '#FFF',
     },
     manageAccountText: {
-        fontSize: 14,
-        color: '#0EA5E9',
-        fontWeight: '600',
-        marginLeft: 42,
+        fontSize: 14, 
+        color: '#0BA5EC',
+        fontWeight: '500', 
+        marginLeft: 52, 
+        marginTop: -5
     },
     profileInfoContainer: {
         alignItems: 'center',
