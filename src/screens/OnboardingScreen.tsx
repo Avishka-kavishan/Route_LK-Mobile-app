@@ -25,8 +25,7 @@ const OnboardingScreen = () => {
     };
 
     const handleJoin = () => {
-        // Navigate to Register or Main for now
-        navigation.navigate('Main');
+        navigation.navigate('SignUp');
     };
 
     return (
