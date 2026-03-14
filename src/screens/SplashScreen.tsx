@@ -34,7 +34,7 @@ const SplashScreen = ({ navigation }: SplashScreenProps) => {
         ]).start();
 
         const timer = setTimeout(() => {
-            navigation.replace('Main');
+            navigation.replace('Onboarding');
         }, 2500);
 
         return () => clearTimeout(timer);
