@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import Back from '../assets/svg/back.svg'
 
 type NotificationScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
 
@@ -90,12 +91,9 @@ const NotificationScreen = ({ navigation }: Props) => {
                     style={styles.backButton}
                     onPress={() => navigation.goBack()}
                 >
-                    <Icon name="arrow-left" size={24} color={THEME.colors.text} />
+                    <Back width={24} height={24} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Notifications</Text>
-                <TouchableOpacity style={styles.markReadButton}>
-                    <Text style={styles.markReadText}>Mark all as read</Text>
-                </TouchableOpacity>
             </View>
 
             <ScrollView 
@@ -154,6 +152,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         borderBottomWidth: 1,
         borderBottomColor: '#F1F5F9',
+        marginTop:60
     },
     backButton: {
         width: 40,
@@ -168,7 +167,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: THEME.colors.text,
-        flex: 1,
+        textAlign:"center",
+        flex:1,
+        marginLeft:-52
     },
     markReadButton: {
         paddingVertical: 4,

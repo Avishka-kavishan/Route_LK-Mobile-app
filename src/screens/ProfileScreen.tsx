@@ -10,8 +10,9 @@ import {
     ScrollView,
     TouchableOpacity,
     Image,
+    ImageBackground,
+    StatusBar,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 
@@ -20,139 +21,194 @@ const ProfileScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollContent}>
-                <LinearGradient
-                    colors={[THEME.colors.primary, THEME.colors.secondary]}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
+            <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
+            <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+                {/* ─── Header ─── */}
+                <ImageBackground
+                    source={require('../assets/image/header.png')}
                     style={styles.header}
+                    imageStyle={styles.headerImage}
                 >
-                    <View style={styles.profileHeader}>
-                        <View style={styles.avatarContainer}>
-                            <Icon name="account" size={50} color={THEME.colors.primary} />
+                    <View style={styles.headerOverlay}>
+                        <View style={styles.headerTopRow}>
+                            <View style={styles.profileIconBadge}>
+                                <Icon name="account" size={24} color={THEME.colors.primary} />
+                            </View>
+                            <Text style={styles.headerTitle}>Profile</Text>
                         </View>
-                        <View style={styles.profileInfo}>
-                            <Text style={styles.userName}>Guest User</Text>
-                            <Text style={styles.userEmail}>guest@routelk.com</Text>
-                        </View>
+                        <TouchableOpacity>
+                            <Text style={styles.manageAccountText}>Manage your account</Text>
+                        </TouchableOpacity>
                     </View>
-                </LinearGradient>
+                </ImageBackground>
 
-                <View style={styles.content}>
-                    <Text style={styles.sectionTitle}>Account Settings</Text>
+                {/* ─── Profile Info ─── */}
+                <View style={styles.profileInfoContainer}>
+                    <View style={styles.avatarWrapper}>
+                        <Image
+                            source={{ uri: 'https://i.pravatar.cc/150?u=sherina' }} // Placeholder
+                            style={styles.avatar}
+                        />
+                    </View>
+                    <Text style={styles.userName}>Sherina Doe</Text>
+                    <Text style={styles.userEmail}>sherinadoe@gmail.com</Text>
+                </View>
 
-                    <ProfileOption icon="account-edit" label="Edit Profile" />
-                    <ProfileOption 
-                        icon="bell" 
-                        label="Notifications" 
-                        onPress={() => navigation.navigate('Notifications')} 
-                    />
-                    <ProfileOption icon="wallet" label="My Wallet" />
-                    <ProfileOption icon="shield-check" label="Security" />
-                    <ProfileOption icon="help-circle" label="Support" />
+                {/* ─── Account Settings ─── */}
+                <View style={styles.settingsSection}>
+                    <View style={styles.settingsCard}>
+                        <Text style={styles.sectionTitle}>Account Settings</Text>
 
-                    <TouchableOpacity style={styles.logoutButton}>
-                        <Icon name="logout" size={20} color="#FF3B30" />
-                        <Text style={styles.logoutText}>Logout</Text>
-                    </TouchableOpacity>
+                        <ProfileOption label="Edit Profile" />
+                        <ProfileOption
+                            label="Notifications"
+                            onPress={() => navigation.navigate('Notifications')}
+                        />
+                        <ProfileOption label="My Wallet" />
+                        <ProfileOption label="Security" icon="shield-outline" />
+                        <ProfileOption label="Support" />
+                        <ProfileOption label="Log out" isLogout />
+                    </View>
                 </View>
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-const ProfileOption = ({ icon, label, onPress }: { icon: string; label: string; onPress?: () => void }) => (
+const ProfileOption = ({
+    label,
+    icon,
+    onPress,
+    isLogout,
+}: {
+    label: string;
+    icon?: string;
+    onPress?: () => void;
+    isLogout?: boolean;
+}) => (
     <TouchableOpacity style={styles.option} onPress={onPress} activeOpacity={0.7}>
         <View style={styles.optionLeft}>
-            <Icon name={icon} size={24} color={THEME.colors.primary} />
-            <Text style={styles.optionLabel}>{label}</Text>
+            {icon && <Icon name={icon} size={24} color="#1A1A2E" style={styles.optionIcon} />}
+            <Text style={[styles.optionLabel, isLogout && styles.logoutLabel]}>{label}</Text>
         </View>
-        <Icon name="chevron-right" size={24} color={THEME.colors.textSecondary} />
+        <Icon name="chevron-right" size={20} color="#1A1A2E" />
     </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: THEME.colors.background,
+        backgroundColor: '#FFF',
     },
     scrollContent: {
         paddingBottom: 40,
     },
     header: {
-        paddingTop: 60,
-        paddingBottom: 40,
-        paddingHorizontal: 24,
-        borderBottomLeftRadius: THEME.radius.xl,
-        borderBottomRightRadius: THEME.radius.xl,
+        width: '100%',
+        height: 220,
+        overflow: 'hidden',
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
     },
-    profileHeader: {
+    headerImage: {
+        resizeMode: 'cover',
+    },
+    headerOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        paddingTop: 60,
+        paddingHorizontal: 24,
+    },
+    headerTopRow: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 4,
     },
-    avatarContainer: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
+    profileIconBadge: {
+        width: 32,
+        height: 32,
         backgroundColor: '#FFF',
+        borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
+        marginRight: 10,
+    },
+    headerTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#FFF',
+    },
+    manageAccountText: {
+        fontSize: 14,
+        color: '#0EA5E9',
+        fontWeight: '600',
+        marginLeft: 42,
+    },
+    profileInfoContainer: {
+        alignItems: 'center',
+        marginTop: -60,
+        marginBottom: 20,
+    },
+    avatarWrapper: {
+        width: 120,
+        height: 120,
+        borderRadius: 60,
+        borderWidth: 4,
+        borderColor: '#0EA5E9',
+        overflow: 'hidden',
+        backgroundColor: '#FFF',
         ...THEME.shadows.medium,
     },
-    profileInfo: {
-        marginLeft: 20,
+    avatar: {
+        width: '100%',
+        height: '100%',
     },
     userName: {
         fontSize: 22,
         fontWeight: 'bold',
-        color: '#FFF',
+        color: '#1A1A2E',
+        marginTop: 12,
     },
     userEmail: {
-        fontSize: 14,
-        color: 'rgba(255,255,255,0.8)',
+        fontSize: 15,
+        color: '#1A1A2E',
+        opacity: 0.7,
         marginTop: 4,
     },
-    content: {
-        padding: 24,
+    settingsSection: {
+        paddingHorizontal: 20,
+    },
+    settingsCard: {
+        backgroundColor: '#F3F4F6',
+        borderRadius: 16,
+        padding: 20,
     },
     sectionTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: THEME.colors.text,
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#9CA3AF',
         marginBottom: 16,
     },
     option: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: '#FFF',
-        padding: 16,
-        borderRadius: THEME.radius.md,
-        marginBottom: 12,
-        ...THEME.shadows.light,
+        paddingVertical: 14,
     },
     optionLeft: {
         flexDirection: 'row',
         alignItems: 'center',
     },
+    optionIcon: {
+        marginRight: 12,
+    },
     optionLabel: {
-        marginLeft: 16,
-        fontSize: 16,
-        fontWeight: '500',
-        color: THEME.colors.text,
+        fontSize: 17,
+        fontWeight: '600',
+        color: '#1A1A2E',
     },
-    logoutButton: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 20,
-        padding: 16,
-    },
-    logoutText: {
-        marginLeft: 8,
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: '#FF3B30',
+    logoutLabel: {
+        color: '#EF4444',
     },
 });
 
