@@ -32,9 +32,8 @@ const OnboardingScreen = () => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
-            
             <ImageBackground
-                source={require('../assets/image/onboarding_bg.png')}
+                source={require('../assets/image/onboardningT.png')}
                 style={styles.backgroundImage}
                 resizeMode="cover"
             >
@@ -73,6 +72,7 @@ const OnboardingScreen = () => {
                     </View>
                 </SafeAreaView>
             </ImageBackground>
+            
         </View>
     );
 };
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
     },
     backgroundImage: {
         width: width,
-        height: height,
+        height:800,
+        
     },
     overlay: {
         flex: 1,
@@ -109,8 +110,9 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 40,
         paddingHorizontal: 24,
         paddingTop: 32,
-        paddingBottom: 40,
         alignItems: 'center',
+        height:210
+        
     },
     title: {
         fontSize: 28,
