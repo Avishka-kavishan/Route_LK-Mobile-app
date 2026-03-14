@@ -16,6 +16,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
+import Profile from '../assets/svg/profile.svg';
 
 const ProfileScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -38,7 +39,7 @@ const ProfileScreen = () => {
                 >
                         <View style={styles.headerTopRow}>
                             <View style={styles.profileIconBadge}>
-                                <Icon name="account" size={24} color={THEME.colors.primary} />
+                                <Profile width={24} height={24} color={THEME.colors.secondary} />
                             </View>
                             <Text style={styles.headerTitle}>Profile</Text>
                         </View>
@@ -112,8 +113,8 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height:170, 
-        borderBottomLeftRadius: 30, 
-        borderBottomRightRadius: 30, 
+        borderBottomLeftRadius: 20, 
+        borderBottomRightRadius: 20, 
         overflow: 'hidden',
         alignContent:'center'
     },
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
         paddingBottom: 80,
         paddingHorizontal: 20,
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
-        borderRadius: 30,
+        borderRadius: 20,
         height:170
     },
     headerTopRow: {
@@ -148,20 +149,21 @@ const styles = StyleSheet.create({
         marginRight: 12
     },
     headerTitle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FFF',
+        fontSize: 22, 
+        fontWeight: 'bold', 
+        color: '#FFF', 
+        marginTop: 1
     },
     manageAccountText: {
         fontSize: 14, 
         color: '#0BA5EC',
         fontWeight: '500', 
         marginLeft: 52, 
-        marginTop: -5
+        marginTop: -10
     },
     profileInfoContainer: {
         alignItems: 'center',
-        marginTop: -60,
+        marginTop: -40,
         marginBottom: 20,
     },
     avatarWrapper: {
