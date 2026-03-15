@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
 
     // Hero text
     heroTitle: {
-        fontSize: ms(24, 0.7), // Slightly smaller
+        fontSize: ms(22, 0.7), // Slightly smaller
         fontWeight: 'bold',
         color: '#FFF',
         lineHeight: ms(28, 0.7),
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
     searchCard: {
         backgroundColor: '#FFF',
         marginHorizontal: scale(16),
-        marginTop: 0,                              // Removed negative margin to prevent clipping
+        marginTop: 60,                              // Removed negative margin to prevent clipping
         borderRadius: scale(20),
         paddingHorizontal: scale(20),
         paddingTop: verticalScale(20),
