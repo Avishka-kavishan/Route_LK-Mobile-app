@@ -7,19 +7,33 @@ const guidelineBaseWidth = 375;
 const guidelineBaseHeight = 812;
 
 /**
- * Scales value based on screen width
+ * Linear scale based on width
  */
 const scale = (size: number) => (SCREEN_WIDTH / guidelineBaseWidth) * size;
 
 /**
- * Scales value based on screen height
+ * Linear scale based on height
  */
 const verticalScale = (size: number) => (SCREEN_HEIGHT / guidelineBaseHeight) * size;
 
 /**
- * Moderate scale with a factor (default 0.5) to keep it from scaling too drastically on large screens
+ * Moderate scale with a factor (default 0.5)
+ * Best for fonts and small spacing to prevent aggressive growth on large screens
  */
 const moderateScale = (size: number, factor = 0.5) => size + (scale(size) - size) * factor;
+
+/**
+ * Moderate vertical scale
+ */
+const moderateVerticalScale = (size: number, factor = 0.5) => size + (verticalScale(size) - size) * factor;
+
+/**
+ * Shorthands for cleaner code
+ */
+const s = scale;
+const vs = verticalScale;
+const ms = moderateScale;
+const mvs = moderateVerticalScale;
 
 /**
  * Percentage width
@@ -37,4 +51,9 @@ const hp = (heightPercent: number) => {
     return PixelRatio.roundToNearestPixel(SCREEN_HEIGHT * elemHeight / 100);
 };
 
-export { scale, verticalScale, moderateScale, wp, hp, SCREEN_WIDTH, SCREEN_HEIGHT };
+export { 
+    scale, verticalScale, moderateScale, moderateVerticalScale, 
+    s, vs, ms, mvs, 
+    wp, hp, 
+    SCREEN_WIDTH, SCREEN_HEIGHT 
+};

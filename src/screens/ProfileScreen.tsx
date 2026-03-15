@@ -18,7 +18,7 @@ import { THEME } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import Profile from '../assets/svg/profile.svg';
 import RightArrow from '../assets/svg/rigtArrow.svg';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 
 const ProfileScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -97,10 +97,10 @@ const ProfileOption = ({
 }) => (
     <TouchableOpacity style={styles.option} onPress={onPress} activeOpacity={0.7}>
         <View style={styles.optionLeft}>
-            {icon && <Icon name={icon} size={scale(24)} color="#1A1A2E" style={styles.optionIcon} />}
+            {icon && <Icon name={icon} size={ms(24)} color="#1A1A2E" style={styles.optionIcon} />}
             <Text style={[styles.optionLabel, isLogout && styles.logoutLabel]}>{label}</Text>
         </View>
-        <RightArrow width={scale(24)} height={scale(24)} color="#1A1A2E" />
+        <RightArrow width={ms(24)} height={ms(24)} color="#1A1A2E" />
     </TouchableOpacity>
 );
 
@@ -151,13 +151,13 @@ const styles = StyleSheet.create({
         marginRight: scale(12)
     },
     headerTitle: {
-        fontSize: scale(22), 
+        fontSize: ms(22), 
         fontWeight: 'bold', 
         color: '#FFF', 
         marginTop: verticalScale(1)
     },
     manageAccountText: {
-        fontSize: scale(14), 
+        fontSize: ms(14), 
         color: '#0BA5EC',
         fontWeight: '500', 
         marginLeft: scale(52), 
@@ -183,13 +183,13 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     userName: {
-        fontSize: scale(22),
+        fontSize: ms(22),
         fontWeight: 'bold',
         color: '#1A1A2E',
         marginTop: verticalScale(12),
     },
     userEmail: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         color: '#1A1A2E',
         opacity: 0.7,
         marginTop: verticalScale(4),
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         padding: scale(20),
     },
     sectionTitle: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: '600',
         color: '#9CA3AF',
         marginBottom: verticalScale(16),
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         marginRight: scale(12),
     },
     optionLabel: {
-        fontSize: scale(17),
+        fontSize: ms(17),
         fontWeight: '600',
         color: '#1A1A2E',
     },

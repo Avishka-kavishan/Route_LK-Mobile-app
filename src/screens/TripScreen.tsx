@@ -11,7 +11,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 
 import Trip from "../assets/svg/trip.svg";
 
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     tabButtonText: {
         color: '#1F2937',
         fontWeight: '500',
-        fontSize: scale(15),
+        fontSize: ms(15),
     },
     activeTabButtonText: {
         color: '#FFF',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
         marginRight: scale(10),
     },
     ticketNumber: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         fontWeight: '500',
         color: '#111827',
     },
@@ -302,13 +302,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cityName: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: '600',
         color: '#111827',
         marginBottom: verticalScale(2),
     },
     routeLabel: {
-        fontSize: scale(11),
+        fontSize: ms(11),
         fontWeight: '600',
         color: '#9CA3AF',
         textTransform: 'uppercase',
@@ -317,13 +317,13 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     timeText: {
-        fontSize: scale(13),
+        fontSize: ms(13),
         fontWeight: '500',
         color: '#9CA3AF',
         marginBottom: verticalScale(2),
     },
     dateText: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         fontWeight: '500',
         color: '#9CA3AF',
     },
@@ -332,13 +332,13 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(60),
     },
     emptyStateTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18, 0.7),
         fontWeight: 'bold',
         color: '#1F2937',
         marginTop: verticalScale(16),
     },
     emptyStateSub: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: '#6B7280',
         textAlign: 'center',
         marginTop: verticalScale(8),

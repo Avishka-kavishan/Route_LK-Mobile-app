@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
 
 
 const OnboardingScreen = () => {
@@ -30,7 +30,7 @@ const OnboardingScreen = () => {
         <View style={styles.container}>
             <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
             <ImageBackground
-                source={require('../assets/image/onboardningT.png')}
+                source={require('../assets/image/onboardingT.png')}
                 style={styles.backgroundImage}
                 resizeMode="cover"
             >
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(60),
     },
     logoText: {
-        fontSize: scale(32),
+        fontSize: ms(32),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -111,17 +111,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: scale(28),
+        fontSize: ms(28, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
         marginBottom: verticalScale(12),
     },
     description: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         color: THEME.colors.text,
         textAlign: 'center',
-        lineHeight: scale(26),
+        lineHeight: ms(26),
         marginBottom: verticalScale(32),
         paddingHorizontal: scale(10),
     },
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         marginRight: scale(10),
     },
     loginButtonText: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: '600',
         color: THEME.colors.secondary,
     },
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         ...THEME.shadows.medium,
     },
     joinButtonText: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: '600',
         color: '#FFFFFF',
     },

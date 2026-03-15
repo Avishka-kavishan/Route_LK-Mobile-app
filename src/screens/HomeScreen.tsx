@@ -31,7 +31,7 @@ import Sheild from "../assets/svg/sheild.svg";
 import Time from "../assets/svg/time.svg";
 import Bus from "../assets/svg/bus1.svg";
 import Notification from "../assets/svg/Notification icon.svg";
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 
 
 // ─── Navigation Types ─────────────────────────────────────────────────────────
@@ -84,63 +84,50 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
-            {/* ─── Scrollable Content ─── */}
+            {/* HERO HEADER - Fixed at top */}
+            <ImageBackground
+                source={require('../assets/image/header.png')}
+                style={styles.header}
+                imageStyle={styles.headerImage}
+                resizeMode="cover"
+            >
+                <LinearGradient
+                    colors={['transparent', 'rgba(25, 39, 61, 0.55)', '#0f1923']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                    style={styles.gradientOverlay}
+                >
+                    <View style={styles.topBar}>
+                        <View style={styles.logoRow}>
+                            <View style={styles.logoBadge}>
+                                <Logo width={scale(35)} height={scale(35)} />
+                            </View>
+                            <Text style={styles.brandText}>
+                                Route<Text style={styles.brandHighlight}>LK</Text>
+                            </Text>
+                        </View>
+
+                        <TouchableOpacity 
+                            style={styles.bellButton}
+                            onPress={() => navigation.navigate('Notifications')}
+                            activeOpacity={0.7}
+                        >
+                            <Notification width={scale(40)} height={scale(40)} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <Text style={styles.heroTitle}>Book your{'\n'}Bus Journey</Text>
+                    <Text style={styles.heroSub}>Fast, safe & comfortable travel</Text>
+                </LinearGradient>
+            </ImageBackground>
+
             <ScrollView
+                style={{ flex: 1 }}
                 contentContainerStyle={styles.scrollContent}
                 showsVerticalScrollIndicator={false}
             >
-                {/* ─── HERO HEADER ─────────────────────────────────────────────── */}
-                {/* Bus photo background — replace require() path with your actual image */}
-                <ImageBackground
-                    source={require('../assets/image/header.png')}   // ← swap with your bus image
-                    style={styles.header}
-                    imageStyle={styles.headerImage}
-                    resizeMode="cover"
-                >
-                    {/* Bottom-only gradient overlay: transparent at top → dark at bottom */}
-                    <LinearGradient
-                        colors={['transparent', 'rgba(25, 39, 61, 0.55)', '#0f1923']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 0, y: 1 }}
-                        style={styles.gradientOverlay}
-                    >
-                        {/* Top bar: Logo + Notification */}
-                        <View style={styles.topBar}>
-                            {/* App logo badge + brand name */}
-                            <View style={styles.logoRow}>
-                                <View style={styles.logoBadge}>
-                                    <Logo width={scale(35)} height={scale(35)} />
-                                </View>
-                                <Text style={styles.brandText}>
-                                    Route<Text style={styles.brandHighlight}>LK</Text>
-                                </Text>
-                            </View>
-
-                            {/* Notification bell */}
-                            <TouchableOpacity 
-                                style={styles.bellButton}
-                                onPress={() => {
-                                    console.log('Notification button pressed');
-                                    navigation.navigate('Notifications');
-                                }}
-                                hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }}
-                                activeOpacity={0.7}
-                            >
-                                <Notification width={scale(40)} height={scale(40)} />
-                            </TouchableOpacity>
-                        </View>
-
-                        {/* Hero tagline */}
-                        <Text style={styles.heroTitle}>Book your{'\n'}Bus Journey</Text>
-                        <Text style={styles.heroSub}>Fast, safe & comfortable travel</Text>
-                    </LinearGradient>
-                </ImageBackground>
-
-                {/* ─── SEARCH CARD ──────────────────────────────────────────────── */}
-                {/* Floating white card overlapping the dark header */}
+                {/* SEARCH CARD */}
                 <View style={styles.searchCard}>
-
-                    {/* FROM field */}
                     <Text style={styles.fieldLabel}>From</Text>
                     <TouchableOpacity
                         style={styles.dropdownField}
@@ -158,10 +145,8 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                         <Dropdown width={scale(35)} height={scale(35)} />
                     </TouchableOpacity>
 
-                    {/* TO field with swap button */}
                     <View style={styles.toRow}>
                         <Text style={styles.fieldLabel}>To</Text>
-                        {/* Orange swap icon */}
                         <TouchableOpacity style={styles.swapButton} onPress={swapLocations}>
                             <Change width={scale(35)} height={scale(35)} />
                         </TouchableOpacity>
@@ -182,7 +167,6 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                         <Dropdown width={scale(35)} height={scale(35)} />
                     </TouchableOpacity>
 
-                    {/* DATE field */}
                     <Text style={[styles.fieldLabel, { marginTop: 16 }]}>Date</Text>
                     <TouchableOpacity
                         style={styles.dropdownField}
@@ -196,7 +180,6 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                         </Text>
                     </TouchableOpacity>
 
-                    {/* Hidden date picker modal */}
                     <DatePicker
                         modal
                         open={datePickerOpen}
@@ -209,13 +192,12 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                         onCancel={() => setDatePickerOpen(false)}
                     />
 
-                    {/* Search Button */}
                     <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
                         <Text style={styles.searchButtonText}>Search Route</Text>
                     </TouchableOpacity>
                 </View>
 
-                {/* ─── WHY CHOOSE US ────────────────────────────────────────────── */}
+                {/* WHY CHOOSE US */}
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Why choose us</Text>
                     <View style={styles.choiceRow}>
@@ -225,7 +207,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                     </View>
                 </View>
 
-                {/* ─── POPULAR ROUTES ───────────────────────────────────────────── */}
+                {/* POPULAR ROUTES */}
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Popular Routes</Text>
                     <RouteCard from="Colombo" to="Kandy" sub="Multiple buses daily" price="1,500" />
@@ -360,7 +342,7 @@ const styles = StyleSheet.create({
         marginRight: scale(8),
     },
     brandText: {
-        fontSize: scale(20),
+        fontSize: ms(20),
         fontWeight: 'bold',
         color: '#FFF',
     },
@@ -379,14 +361,14 @@ const styles = StyleSheet.create({
 
     // Hero text
     heroTitle: {
-        fontSize: scale(28),
+        fontSize: ms(28, 0.7),
         fontWeight: 'bold',
         color: '#FFF',
-        lineHeight: scale(30),
+        lineHeight: ms(30, 0.7),
         marginBottom: verticalScale(5),
     },
     heroSub: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: '#0EA5E9',
         fontWeight: '500',
     },
@@ -407,7 +389,7 @@ const styles = StyleSheet.create({
 
     // Field labels
     fieldLabel: {
-        fontSize: scale(13),
+        fontSize: ms(13),
         fontWeight: '600',
         color: '#0EA5E9',
         marginBottom: verticalScale(8),
@@ -434,7 +416,7 @@ const styles = StyleSheet.create({
     },
     fieldText: {
         flex: 1,
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: '600',
         color: '#1A1A2E',
     },
@@ -472,7 +454,7 @@ const styles = StyleSheet.create({
     },
     searchButtonText: {
         color: '#FFF',
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: 'bold',
         letterSpacing: 0.3,
     },
@@ -483,7 +465,7 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(28),
     },
     sectionTitle: {
-        fontSize: scale(20),
+        fontSize: ms(20, 0.7),
         fontWeight: 'bold',
         color: '#1A1A2E',
         marginBottom: verticalScale(16),
@@ -517,13 +499,13 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(10),
     },
     choiceLabel: {
-        fontSize: scale(13),
+        fontSize: ms(13),
         fontWeight: 'bold',
         color: '#1A1A2E',
         textAlign: 'center',
     },
     choiceSub: {
-        fontSize: scale(11),
+        fontSize: ms(11),
         color: '#94A3B8',
         textAlign: 'center',
         marginTop: verticalScale(3),
@@ -556,18 +538,18 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     routeTitle: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: 'bold',
         color: '#000000ff',
         marginTop: verticalScale(-3)
     },
     routeSub: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: '#94A3B8',
         marginTop: verticalScale(2),
     },
     routePrice: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: 'bold',
         color: '#F97316',             // Orange price to match mockup
     },
@@ -576,9 +558,9 @@ const styles = StyleSheet.create({
     modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' },
     modalContent: { backgroundColor: '#FFF', borderTopLeftRadius: scale(24), borderTopRightRadius: scale(24), padding: scale(20), maxHeight: '70%' },
     modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: verticalScale(16) },
-    modalTitle: { fontSize: scale(18), fontWeight: 'bold', color: '#1A1A2E' },
+    modalTitle: { fontSize: ms(18), fontWeight: 'bold', color: '#1A1A2E' },
     cityOption: { paddingVertical: verticalScale(14), borderBottomWidth: 1, borderBottomColor: '#F1F5F9' },
-    cityOptionText: { fontSize: scale(16), color: '#1A1A2E' },
+    cityOptionText: { fontSize: ms(16), color: '#1A1A2E' },
 });
 
 export default HomeScreen;

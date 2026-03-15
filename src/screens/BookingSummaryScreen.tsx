@@ -11,7 +11,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         padding: scale(8),
     },
     headerTitle: {
-        fontSize: scale(20),
+        fontSize: ms(20),
         fontWeight: 'bold',
         color: THEME.colors.text,
         marginLeft: scale(12),
@@ -140,12 +140,12 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(16),
     },
     successTitle: {
-        fontSize: scale(24),
+        fontSize: ms(24, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     successSubtitle: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: THEME.colors.textSecondary,
         marginTop: verticalScale(4),
     },
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         ...THEME.shadows.medium,
     },
     cardTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.text,
         marginBottom: verticalScale(16),
@@ -177,11 +177,11 @@ const styles = StyleSheet.create({
         marginRight: scale(12),
     },
     detailLabel: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: THEME.colors.textSecondary,
     },
     detailValue: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: '600',
         color: THEME.colors.text,
     },
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     seatText: {
         color: '#FFF',
         fontWeight: 'bold',
-        fontSize: scale(12),
+        fontSize: ms(12),
     },
     priceCard: {
         backgroundColor: '#FFF',
@@ -220,11 +220,11 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(12),
     },
     priceLabel: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
     },
     priceValue: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         fontWeight: '600',
         color: THEME.colors.text,
     },
@@ -235,12 +235,12 @@ const styles = StyleSheet.create({
         borderTopColor: THEME.colors.border,
     },
     totalLabel: {
-        fontSize: scale(18),
+        fontSize: ms(18, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     totalValue: {
-        fontSize: scale(22),
+        fontSize: ms(22),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },
@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#FFF',
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
     },
 });

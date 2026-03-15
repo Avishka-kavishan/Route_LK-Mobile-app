@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 import Back from '../assets/svg/back.svg'
 
 type NotificationScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
         marginRight: scale(12),
     },
     headerTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
         textAlign:"center",
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
         paddingVertical: verticalScale(4),
     },
     markReadText: {
-        fontSize: scale(13),
+        fontSize: ms(13),
         color: THEME.colors.secondary,
         fontWeight: '600',
     },
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         paddingBottom: verticalScale(40),
     },
     sectionTitle: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         fontWeight: '700',
         color: THEME.colors.textSecondary,
         marginBottom: verticalScale(16),
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(4),
     },
     notifTitle: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
@@ -235,13 +235,13 @@ const styles = StyleSheet.create({
         backgroundColor: THEME.colors.secondary,
     },
     notifDescription: {
-        fontSize: scale(13),
+        fontSize: ms(13),
         color: THEME.colors.textSecondary,
-        lineHeight: scale(18),
+        lineHeight: ms(18),
         marginBottom: verticalScale(6),
     },
     notifTime: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: THEME.colors.textSecondary,
         fontWeight: '500',
     },
@@ -261,17 +261,17 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(20),
     },
     emptyTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.text,
         marginBottom: verticalScale(8),
     },
     emptySub: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
         textAlign: 'center',
         paddingHorizontal: scale(40),
-        lineHeight: scale(20),
+        lineHeight: ms(20),
     },
 });
 

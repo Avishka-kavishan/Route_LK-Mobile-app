@@ -10,7 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -174,12 +174,12 @@ const styles = StyleSheet.create({
         marginLeft: scale(12),
     },
     headerTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     headerSubtitle: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
     },
     listContent: {
@@ -199,12 +199,12 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(16),
     },
     busName: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     busType: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
     },
     ratingBadge: {
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     },
     ratingText: {
         color: '#FFF',
-        fontSize: scale(12),
+        fontSize: ms(12),
         fontWeight: 'bold',
         marginLeft: scale(4),
     },
@@ -231,12 +231,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     time: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     location: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: THEME.colors.textSecondary,
         marginTop: verticalScale(2),
     },
@@ -274,12 +274,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     priceLabel: {
-        fontSize: scale(10),
+        fontSize: ms(10),
         color: THEME.colors.textSecondary,
         textTransform: 'uppercase',
     },
     price: {
-        fontSize: scale(20),
+        fontSize: ms(20),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },

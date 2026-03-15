@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
 
 import Apple from "../assets/svg/apple.svg"
 import Facebook from "../assets/svg/facebook.svg"
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(60),
     },
     logoText: {
-        fontSize: scale(32),
+        fontSize: ms(32),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -174,14 +174,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: scale(28),
+        fontSize: ms(28, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
         marginBottom: verticalScale(8),
     },
     subtitle: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#1A1A2E',
         fontWeight: '600',
         textAlign: 'center',
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(20),
     },
     label: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#374151',
         marginBottom: verticalScale(8),
         fontWeight: '500',
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
         borderColor: '#E5E7EB',
         borderRadius: scale(28),
         paddingHorizontal: scale(20),
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#1F2937',
         backgroundColor: '#FFFFFF',
     },
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
         ...THEME.shadows.medium,
     },
     loginButtonText: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     forgotPasswordText: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#1A1A2E',
         fontWeight: '500',
     },
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     },
     dividerText: {
         paddingHorizontal: scale(16),
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: '#6B7280',
     },
     footer: {
@@ -273,11 +273,11 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(20)
     },
     footerText: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#4B5563',
     },
     signInText: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
     },

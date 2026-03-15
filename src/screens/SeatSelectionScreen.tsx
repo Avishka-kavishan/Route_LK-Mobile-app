@@ -10,7 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -175,12 +175,12 @@ const styles = StyleSheet.create({
         marginLeft: scale(12),
     },
     headerTitle: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     headerSubtitle: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
     },
     scrollContent: {
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         paddingRight: scale(20),
     },
     frontText: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: THEME.colors.textSecondary,
         fontWeight: 'bold',
         textTransform: 'uppercase',
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
         marginRight: scale(8),
     },
     legendText: {
-        fontSize: scale(12),
+        fontSize: ms(12),
         color: THEME.colors.textSecondary,
     },
     seatsContainer: {
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
         borderColor: '#CBD5E1',
     },
     seatLabel: {
-        fontSize: scale(10),
+        fontSize: ms(10),
         fontWeight: 'bold',
         color: THEME.colors.textSecondary,
         marginTop: verticalScale(2),
@@ -271,11 +271,11 @@ const styles = StyleSheet.create({
         borderTopColor: THEME.colors.border,
     },
     selectedCount: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: THEME.colors.textSecondary,
     },
     totalPrice: {
-        fontSize: scale(24),
+        fontSize: ms(24),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#FFF',
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: 'bold',
     },
 });

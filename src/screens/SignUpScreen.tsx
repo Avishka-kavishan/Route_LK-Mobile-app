@@ -15,7 +15,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 
 import Arrow from "../assets/svg/back.svg"
 import Apple from "../assets/svg/apple.svg"
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         flex: 1,
-        fontSize: scale(22),
+        fontSize: ms(22),
         fontWeight: 'bold',
         color: '#1A1A2E',
         textAlign: 'center',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
         marginBottom: verticalScale(20),
     },
     label: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#374151',
         marginBottom: verticalScale(8),
         fontWeight: '500',
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         borderColor: '#E5E7EB',
         borderRadius: scale(28),
         paddingHorizontal: scale(20),
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#1F2937',
         backgroundColor: '#FFFFFF',
     },
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         borderColor: THEME.colors.secondary,
     },
     checkboxLabel: {
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: '#374151',
     },
     termsText: {
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
         ...THEME.shadows.medium,
     },
     signUpButtonText: {
-        fontSize: scale(18),
+        fontSize: ms(18),
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     },
     dividerText: {
         paddingHorizontal: scale(16),
-        fontSize: scale(14),
+        fontSize: ms(14),
         color: '#6B7280',
     },
     socialContainer: {
@@ -282,11 +282,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     footerText: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         color: '#4B5563',
     },
     signInText: {
-        fontSize: scale(16),
+        fontSize: ms(16),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
     },

@@ -29,7 +29,7 @@ import Dropdown from '../assets/svg/dropdown.svg';
 import Change from '../assets/svg/change.svg';
 import Time from '../assets/svg/time b.svg';
 import Cancel from '../assets/svg/cancel.svg';
-import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
+import { scale, verticalScale, moderateScale, wp, hp, ms, mvs } from '../utils/responsive';
 
 // Removed unused SVG imports; using MaterialCommunityIcons for icons
 
@@ -304,8 +304,8 @@ const styles = StyleSheet.create({
     },
 
     headerTextContainer: { justifyContent: 'center' },
-    heroTitle: { fontSize: scale(22), fontWeight: 'bold', color: '#FFF', marginTop: verticalScale(1) },
-    heroSub: { fontSize: scale(14), color: '#0EA5E9', fontWeight: '500', marginLeft: scale(52), marginTop: verticalScale(-5) },
+    heroTitle: { fontSize: ms(22), fontWeight: 'bold', color: '#FFF', marginTop: verticalScale(1) },
+    heroSub: { fontSize: ms(14), color: '#0EA5E9', fontWeight: '500', marginLeft: scale(52), marginTop: verticalScale(-5) },
 
     // Search card styles
     searchCard: {
@@ -321,44 +321,44 @@ const styles = StyleSheet.create({
         elevation: 8,
     },
 
-    fieldLabel: { fontSize: scale(14), fontWeight: '700', color: '#0EA5E9', marginBottom: verticalScale(8) }, // Teal-ish color from image
+    fieldLabel: { fontSize: ms(14), fontWeight: '700', color: '#0EA5E9', marginBottom: verticalScale(8) }, // Teal-ish color from image
 
     dropdownField: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F1F5F9', borderRadius: scale(16), paddingHorizontal: scale(16), paddingVertical: verticalScale(14), marginBottom: verticalScale(8), borderWidth: 1, borderColor: '#E2E8F0' },
     fieldIconBg: { width: scale(36), height: scale(36), borderRadius: scale(10), backgroundColor: '#0f1923', justifyContent: 'center', alignItems: 'center', marginRight: scale(12) },
-    fieldText: { flex: 1, fontSize: scale(16), fontWeight: '600', color: '#1A1A2E' },
+    fieldText: { flex: 1, fontSize: ms(16), fontWeight: '600', color: '#1A1A2E' },
     fieldPlaceholder: { color: '#94A3B8', fontWeight: '400' },
     toRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: verticalScale(8), marginBottom: verticalScale(4) },
     swapButton: { width: scale(32), height: scale(32), borderRadius: scale(16), backgroundColor: '#F97316', justifyContent: 'center', alignItems: 'center', position: 'absolute', right: scale(10), top: verticalScale(-7), zIndex: 1, ...THEME.shadows.light },
 
     searchButton: { borderRadius: scale(14), overflow: 'hidden', marginTop: verticalScale(20), width: '85%', alignSelf: 'center' },
     gradientButton: { paddingVertical: verticalScale(16), alignItems: 'center', justifyContent: 'center' },
-    buttonText: { color: '#FFF', fontSize: scale(18), fontWeight: 'bold' },
+    buttonText: { color: '#FFF', fontSize: ms(18), fontWeight: 'bold' },
 
     // Recent searches styles
     recentSection: { marginTop: verticalScale(24), paddingHorizontal: scale(24) },
     recentHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: verticalScale(16) },
-    recentTitle: { fontSize: scale(18), fontWeight: '800', color: '#000' },
-    seeAll: { fontSize: scale(14), color: '#F97316', fontWeight: '600' },
+    recentTitle: { fontSize: ms(18), fontWeight: '800', color: '#000' },
+    seeAll: { fontSize: ms(14), color: '#F97316', fontWeight: '600' },
     recentCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F3F4F6', borderRadius: scale(16), padding: scale(16), marginBottom: verticalScale(12), borderWidth: 1, borderColor: '#E5E7EB' },
     recentIconBg: { width: scale(44), height: scale(44), borderRadius: scale(10), backgroundColor: '#BAE6FD', justifyContent: 'center', alignItems: 'center', marginRight: scale(16) },
     recentInfo: { flex: 1 },
     recentRouteRow: { flexDirection: 'row', alignItems: 'center', marginBottom: verticalScale(2) },
-    recentRoute: { fontSize: scale(16), fontWeight: '700', color: '#1A1A2E' },
+    recentRoute: { fontSize: ms(16), fontWeight: '700', color: '#1A1A2E' },
     recentRouteArrow: {
-        fontSize: scale(15),
+        fontSize: ms(15),
         fontWeight: 'bold',
         color: '#000000ff',
         marginTop: verticalScale(-3)
     },
-    recentDate: { fontSize: scale(12), color: '#64748B', fontWeight: '500' },
+    recentDate: { fontSize: ms(12), color: '#64748B', fontWeight: '500' },
 
     // City Selection Modal
     modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' },
     modalContent: { backgroundColor: '#FFF', borderTopLeftRadius: scale(24), borderTopRightRadius: scale(24), padding: scale(20), maxHeight: '70%' },
     modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: verticalScale(16) },
-    modalTitle: { fontSize: scale(18), fontWeight: 'bold', color: '#1A1A2E' },
+    modalTitle: { fontSize: ms(18), fontWeight: 'bold', color: '#1A1A2E' },
     cityOption: { paddingVertical: verticalScale(14), borderBottomWidth: 1, borderBottomColor: '#F1F5F9' },
-    cityOptionText: { fontSize: scale(16), color: '#1A1A2E' },
+    cityOptionText: { fontSize: ms(16), color: '#1A1A2E' },
 });
 
 export default SearchScreen;
