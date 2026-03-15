@@ -52,7 +52,7 @@ const SplashScreen = ({ navigation }: SplashScreenProps) => {
                     },
                 ]}
             >
-                <Splash width={scale(80)} height={scale(80)} color="#0EA5E9" />
+                <Splash width={scale(60)} height={scale(60)} color="#0EA5E9" />
             </Animated.View>
         </View>
     );
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoBox: {
-        width: scale(110),
-        height: scale(110),
+        width: scale(90),
+        height: scale(90),
         backgroundColor: '#FFFFFF',
         borderRadius: scale(28),
         justifyContent: 'center',
