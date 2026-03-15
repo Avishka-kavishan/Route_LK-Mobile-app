@@ -15,6 +15,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 import Arrow from "../assets/svg/back.svg"
 import Apple from "../assets/svg/apple.svg"
@@ -47,7 +48,7 @@ const SignUpScreen = () => {
                             style={styles.backButton} 
                             onPress={() => navigation.goBack()}
                         >
-                            <Arrow width={24} height={24} />
+                            <Arrow width={scale(24)} height={scale(24)} />
                         </TouchableOpacity>
                         <Text style={styles.headerTitle}>Create New Account</Text>
                     </View>
@@ -97,7 +98,7 @@ const SignUpScreen = () => {
                             activeOpacity={0.7}
                         >
                             <View style={[styles.checkbox, agree && styles.checkboxSelected]}>
-                                {agree && <Checkbox width={20} height={20} />}
+                                {agree && <Checkbox width={scale(20)} height={scale(20)} />}
                             </View>
                             <Text style={styles.checkboxLabel}>
                                 Agree with <Text style={styles.termsText}>Terms & Conditions</Text>
@@ -124,13 +125,13 @@ const SignUpScreen = () => {
                     {/* Social Buttons */}
                     <View style={styles.socialContainer}>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Apple width={28} height={28} />
+                            <Apple width={scale(28)} height={scale(28)} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Facebook width={28} height={28} />
+                            <Facebook width={scale(28)} height={scale(28)} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.socialButton}>
-                            <Google width={28} height={28} />
+                            <Google width={scale(28)} height={scale(28)} />
                         </TouchableOpacity>
                     </View>
 
@@ -156,65 +157,65 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     scrollContent: {
-        paddingHorizontal: 24,
-        paddingBottom: 40,
+        paddingHorizontal: scale(24),
+        paddingBottom: verticalScale(40),
     },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 60,
-        marginBottom: 30,
+        marginTop: verticalScale(60),
+        marginBottom: verticalScale(30),
     },
     backButton: {
-        width: 44,
-        height: 44,
-        borderRadius: 22,
+        width: scale(44),
+        height: scale(44),
+        borderRadius: scale(22),
         backgroundColor: '#F3F4F6',
         justifyContent: 'center',
         alignItems: 'center',
     },
     headerTitle: {
         flex: 1,
-        fontSize: 22,
+        fontSize: scale(22),
         fontWeight: 'bold',
         color: '#1A1A2E',
         textAlign: 'center',
-        marginRight: 44, // To balance the back button
+        marginRight: scale(44), // To balance the back button
     },
     form: {
-        marginBottom: 30,
+        marginBottom: verticalScale(30),
     },
     inputContainer: {
-        marginBottom: 20,
+        marginBottom: verticalScale(20),
     },
     label: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#374151',
-        marginBottom: 8,
+        marginBottom: verticalScale(8),
         fontWeight: '500',
     },
     input: {
-        height: 56,
+        height: verticalScale(56),
         borderWidth: 1,
         borderColor: '#E5E7EB',
-        borderRadius: 28,
-        paddingHorizontal: 20,
-        fontSize: 16,
+        borderRadius: scale(28),
+        paddingHorizontal: scale(20),
+        fontSize: scale(16),
         color: '#1F2937',
         backgroundColor: '#FFFFFF',
     },
     checkboxContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 30,
+        marginBottom: verticalScale(30),
     },
     checkbox: {
-        width: 20,
-        height: 20,
-        borderRadius: 4,
+        width: scale(20),
+        height: scale(20),
+        borderRadius: scale(4),
         borderWidth: 1,
         borderColor: '#9CA3AF',
-        marginRight: 10,
+        marginRight: scale(10),
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:"#FFFFFF"
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
         borderColor: THEME.colors.secondary,
     },
     checkboxLabel: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: '#374151',
     },
     termsText: {
@@ -232,22 +233,22 @@ const styles = StyleSheet.create({
         color: '#1A1A2E',
     },
     signUpButton: {
-        height: 56,
+        height: verticalScale(56),
         backgroundColor: THEME.colors.secondary,
-        borderRadius: 28,
+        borderRadius: scale(28),
         justifyContent: 'center',
         alignItems: 'center',
         ...THEME.shadows.medium,
     },
     signUpButtonText: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
     dividerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 30,
+        marginBottom: verticalScale(30),
     },
     divider: {
         flex: 1,
@@ -255,20 +256,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#E5E7EB',
     },
     dividerText: {
-        paddingHorizontal: 16,
-        fontSize: 14,
+        paddingHorizontal: scale(16),
+        fontSize: scale(14),
         color: '#6B7280',
     },
     socialContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        gap: 20,
-        marginBottom: 40,
+        gap: scale(20),
+        marginBottom: verticalScale(40),
     },
     socialButton: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
+        width: scale(60),
+        height: scale(60),
+        borderRadius: scale(30),
         borderWidth: 1,
         borderColor: '#E5E7EB',
         justifyContent: 'center',
@@ -281,11 +282,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     footerText: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#4B5563',
     },
     signInText: {
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
     },

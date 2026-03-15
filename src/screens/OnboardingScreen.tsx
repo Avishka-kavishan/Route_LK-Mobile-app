@@ -7,14 +7,13 @@ import {
     TouchableOpacity,
     StatusBar,
     SafeAreaView,
-    Dimensions,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
 
-const { width, height } = Dimensions.get('window');
 
 const OnboardingScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -80,8 +79,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     backgroundImage: {
-        width: width,
-        height:800,
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT,
         
     },
     overlay: {
@@ -90,10 +89,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoContainer: {
-        marginTop: 60,
+        marginTop: verticalScale(60),
     },
     logoText: {
-        fontSize: 32,
+        fontSize: scale(32),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -104,28 +103,27 @@ const styles = StyleSheet.create({
     card: {
         width: '100%',
         backgroundColor: '#FFFFFF',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        paddingHorizontal: 24,
-        paddingTop: 32,
+        borderTopLeftRadius: scale(40),
+        borderTopRightRadius: scale(40),
+        paddingHorizontal: scale(24),
+        paddingTop: verticalScale(32),
+        paddingBottom: verticalScale(40),
         alignItems: 'center',
-        height:210
-        
     },
     title: {
-        fontSize: 28,
+        fontSize: scale(28),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
-        marginBottom: 12,
+        marginBottom: verticalScale(12),
     },
     description: {
-        fontSize: 18,
+        fontSize: scale(18),
         color: THEME.colors.text,
         textAlign: 'center',
-        lineHeight: 26,
-        marginBottom: 32,
-        paddingHorizontal: 10,
+        lineHeight: scale(26),
+        marginBottom: verticalScale(32),
+        paddingHorizontal: scale(10),
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -134,31 +132,31 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         flex: 1,
-        height: 56,
-        borderRadius: 28,
+        height: verticalScale(56),
+        borderRadius: scale(28),
         borderWidth: 1,
         borderColor: '#D1D5DB', // Light gray border like in mockup
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 10,
+        marginRight: scale(10),
     },
     loginButtonText: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: '600',
         color: THEME.colors.secondary,
     },
     joinButton: {
         flex: 1,
-        height: 56,
-        borderRadius: 28,
+        height: verticalScale(56),
+        borderRadius: scale(28),
         backgroundColor: THEME.colors.secondary,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 10,
+        marginLeft: scale(10),
         ...THEME.shadows.medium,
     },
     joinButtonText: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: '600',
         color: '#FFFFFF',
     },

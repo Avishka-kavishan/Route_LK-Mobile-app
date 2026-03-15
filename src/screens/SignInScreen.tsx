@@ -9,18 +9,17 @@ import {
     ScrollView,
     ImageBackground,
     StatusBar,
-    Dimensions,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp, SCREEN_WIDTH, SCREEN_HEIGHT } from '../utils/responsive';
 
 import Apple from "../assets/svg/apple.svg"
 import Facebook from "../assets/svg/facebook.svg"
 import Google from "../assets/svg/google.svg"
 
-const { width, height } = Dimensions.get('window');
 
 const SignInScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -108,13 +107,13 @@ const SignInScreen = () => {
                             {/* Social Buttons */}
                             <View style={styles.socialContainer}>
                                 <TouchableOpacity style={styles.socialButton}>
-                                    <Apple width={28} height={28} />
+                                    <Apple width={scale(28)} height={scale(28)} />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.socialButton}>
-                                    <Facebook width={28} height={28} />
+                                    <Facebook width={scale(28)} height={scale(28)} />
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.socialButton}>
-                                    <Google width={28} height={28} />
+                                    <Google width={scale(28)} height={scale(28)} />
                                 </TouchableOpacity>
                             </View>
                             {/* Footer */}
@@ -137,8 +136,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     backgroundImage: {
-        width: width,
-        height: height, // Take up a good portion of the top
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT, // Take up a good portion of the top
     },
     overlay: {
         flex: 1,
@@ -146,10 +145,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoContainer: {
-        marginTop: 60,
+        marginTop: verticalScale(60),
     },
     logoText: {
-        fontSize: 32,
+        fontSize: scale(32),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -164,87 +163,87 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         backgroundColor: '#FFFFFF',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        marginTop: height * 0.4, // Responsive offset
+        borderTopLeftRadius: scale(40),
+        borderTopRightRadius: scale(40),
+        marginTop: verticalScale(320), // Standard offset or HP(40)
     },
     cardContent: {
-        paddingHorizontal: 24,
-        paddingTop: 32,
-        paddingBottom: 20, // Reduced from 80
+        paddingHorizontal: scale(24),
+        paddingTop: verticalScale(32),
+        paddingBottom: verticalScale(20), // Reduced from 80
         alignItems: 'center',
     },
     title: {
-        fontSize: 28,
+        fontSize: scale(28),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
-        marginBottom: 8,
+        marginBottom: verticalScale(8),
     },
     subtitle: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#1A1A2E',
         fontWeight: '600',
         textAlign: 'center',
-        marginBottom: 24,
+        marginBottom: verticalScale(24),
     },
     form: {
         width: '100%',
-        marginBottom: 20,
+        marginBottom: verticalScale(20),
     },
     inputContainer: {
-        marginBottom: 20,
+        marginBottom: verticalScale(20),
     },
     label: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#374151',
-        marginBottom: 8,
+        marginBottom: verticalScale(8),
         fontWeight: '500',
     },
     input: {
-        height: 56,
+        height: verticalScale(56),
         borderWidth: 1,
         borderColor: '#E5E7EB',
-        borderRadius: 28,
-        paddingHorizontal: 20,
-        fontSize: 16,
+        borderRadius: scale(28),
+        paddingHorizontal: scale(20),
+        fontSize: scale(16),
         color: '#1F2937',
         backgroundColor: '#FFFFFF',
     },
     loginButton: {
-        height: 56,
+        height: verticalScale(56),
         backgroundColor: THEME.colors.secondary,
-        borderRadius: 28,
+        borderRadius: scale(28),
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 10,
+        marginTop: verticalScale(10),
         ...THEME.shadows.medium,
     },
     loginButtonText: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
     forgotPassword: {
-        marginTop: 16,
+        marginTop: verticalScale(16),
         alignItems: 'center',
     },
     forgotPasswordText: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#1A1A2E',
         fontWeight: '500',
     },
     socialContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        gap: 20,
+        gap: scale(20),
         marginTop: 0,
-        marginBottom: 10,
+        marginBottom: verticalScale(10),
     },
     socialButton: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
+        width: scale(60),
+        height: scale(60),
+        borderRadius: scale(30),
         borderWidth: 1,
         borderColor: '#E5E7EB',
         justifyContent: 'center',
@@ -254,8 +253,8 @@ const styles = StyleSheet.create({
     dividerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 10,
+        marginBottom: verticalScale(20),
+        marginTop: verticalScale(10),
     },
     divider: {
         flex: 1,
@@ -263,22 +262,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#E5E7EB',
     },
     dividerText: {
-        paddingHorizontal: 16,
-        fontSize: 14,
+        paddingHorizontal: scale(16),
+        fontSize: scale(14),
         color: '#6B7280',
     },
     footer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop:20
+        marginTop: verticalScale(20)
     },
     footerText: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#4B5563',
     },
     signInText: {
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
     },

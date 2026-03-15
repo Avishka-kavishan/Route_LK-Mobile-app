@@ -13,6 +13,7 @@ import Home from "../assets/svg/home.svg";
 import Search from "../assets/svg/search.svg";
 import Trip from "../assets/svg/trip.svg";
 import Profile from "../assets/svg/profile.svg";
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 // ─── Tab param types ──────────────────────────────────────────────────────────
 export type MainTabParamList = {
@@ -33,7 +34,7 @@ const TabNavigator = () => {
 
                 // ── Icon resolver ─────────────────────────────────────────────
                 tabBarIcon: ({ color }) => {
-                    const iconSize = 26;
+                    const iconSize = scale(26);
                     if (route.name === 'Home') return <Home width={iconSize} height={iconSize} fill={color} color={color} />;
                     if (route.name === 'Search') return <Search width={iconSize} height={iconSize} fill={color} color={color} />;
                     if (route.name === 'Trip') return <Trip width={iconSize} height={iconSize} fill={color} color={color} />;
@@ -48,12 +49,12 @@ const TabNavigator = () => {
                     backgroundColor: '#FFF',
                     borderTopWidth: 1,
                     borderTopColor: '#E2E8F0',
-                    paddingBottom: 6,
-                    paddingTop: 6,
-                    height: 62,
+                    paddingBottom: verticalScale(6),
+                    paddingTop: verticalScale(6),
+                    height: verticalScale(62),
                 },
                 tabBarLabelStyle: {
-                    fontSize: 11,
+                    fontSize: scale(11),
                     fontWeight: '600',
                 },
             })}

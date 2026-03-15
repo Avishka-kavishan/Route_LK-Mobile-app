@@ -29,6 +29,7 @@ import Dropdown from '../assets/svg/dropdown.svg';
 import Change from '../assets/svg/change.svg';
 import Time from '../assets/svg/time b.svg';
 import Cancel from '../assets/svg/cancel.svg';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 // Removed unused SVG imports; using MaterialCommunityIcons for icons
 
@@ -101,7 +102,7 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                     {/* Search icon in white square */}
                     <View style={styles.searchHeaderRow}>
                         <View style={styles.searchIconBadge}>
-                            <Search width={24} height={24} />
+                            <Search width={scale(24)} height={scale(24)} />
                         </View>
                         <View style={styles.headerTextContainer}>
                             <Text style={styles.heroTitle}>Search Buses</Text>
@@ -130,17 +131,17 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                         }}
                     >
                         <View style={styles.fieldIconBg}>
-                            <Location width={35} height={35} />
+                            <Location width={scale(35)} height={scale(35)} />
                         </View>
                         <Text style={[styles.fieldText, !from && styles.fieldPlaceholder]}>{from || 'Select City'}</Text>
-                        <Dropdown width={35} height={35} />
+                        <Dropdown width={scale(35)} height={scale(35)} />
                     </TouchableOpacity>
 
                     {/* TO field with swap button */}
                     <View style={styles.toRow}>
                         <Text style={styles.fieldLabel}>To</Text>
                         <TouchableOpacity style={styles.swapButton} onPress={swapLocations}>
-                            <Change width={35} height={35} />
+                            <Change width={scale(35)} height={scale(35)} />
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity
@@ -151,17 +152,17 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                         }}
                     >
                         <View style={styles.fieldIconBg}>
-                            <Location width={35} height={35} />
+                            <Location width={scale(35)} height={scale(35)} />
                         </View>
                         <Text style={[styles.fieldText, !to && styles.fieldPlaceholder]}>{to || 'Select City'}</Text>
-                        <Dropdown width={35} height={35} />
+                        <Dropdown width={scale(35)} height={scale(35)} />
                     </TouchableOpacity>
 
                     {/* DATE field */}
                     <Text style={[styles.fieldLabel, { marginTop: 16 }]}>Date</Text>
                     <TouchableOpacity style={styles.dropdownField} onPress={() => setDatePickerOpen(true)}>
                         <View style={styles.fieldIconBg}>
-                            <Calender width={35} height={35} />
+                            <Calender width={scale(35)} height={scale(35)} />
                         </View>
                         <Text style={[styles.fieldText, !date && styles.fieldPlaceholder]}>{date ? date.toDateString() : 'Select Date'}</Text>
                         {/* No chevron on date as per image sometimes, but keeping for consistency if needed */}
@@ -204,7 +205,7 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                     {recentSearches.map((item, idx) => (
                         <View key={idx} style={styles.recentCard}>
                             <View style={styles.recentIconBg}>
-                                <Time width={35} height={35} />
+                                <Time width={scale(35)} height={scale(35)} />
                             </View>
                             <View style={styles.recentInfo}>
                                 <View style={styles.recentRouteRow}>
@@ -215,7 +216,7 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                                 <Text style={styles.recentDate}>{item.date}</Text>
                             </View>
                             <TouchableOpacity onPress={() => { /* TODO: remove item */ }}>
-                                <Cancel width={25} height={25} />
+                                <Cancel width={scale(25)} height={scale(25)} />
                             </TouchableOpacity>
                         </View>
 
@@ -266,22 +267,24 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
 // ─── Styles ───────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: THEME.colors.background },
-    scrollContent: { paddingBottom: 20 },
-    header: { width: '100%',height:170, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, overflow: 'hidden',alignContent:'center' },
-    headerImage: {width:"104%",
-        height:170,
+    scrollContent: { paddingBottom: verticalScale(20) },
+    header: { width: '100%', height: verticalScale(170), borderBottomLeftRadius: scale(20), borderBottomRightRadius: scale(20), overflow: 'hidden', alignContent:'center' },
+    headerImage: {
+        width: wp(104),
+        height: verticalScale(170),
         resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft:-10},
+        marginLeft: scale(-10)
+    },
 
     gradientOverlay: {
-        paddingTop: 60,
-        paddingBottom: 80,
-        paddingHorizontal: 20,
+        paddingTop: verticalScale(60),
+        paddingBottom: verticalScale(80),
+        paddingHorizontal: scale(20),
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
-        borderRadius: 30,
-        height:170
+        borderRadius: scale(30),
+        height: verticalScale(170)
     },
 
     // New header row styles
@@ -291,71 +294,71 @@ const styles = StyleSheet.create({
     },
 
     searchIconBadge: {
-        width: 40,
-        height: 40,
+        width: scale(40),
+        height: scale(40),
         backgroundColor: '#FFF',
-        borderRadius: 8,
+        borderRadius: scale(8),
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 12
+        marginRight: scale(12)
     },
 
     headerTextContainer: { justifyContent: 'center' },
-    heroTitle: { fontSize: 22, fontWeight: 'bold', color: '#FFF', marginTop: 1 },
-    heroSub: { fontSize: 14, color: '#0EA5E9', fontWeight: '500', marginLeft: 52, marginTop: -5 },
+    heroTitle: { fontSize: scale(22), fontWeight: 'bold', color: '#FFF', marginTop: verticalScale(1) },
+    heroSub: { fontSize: scale(14), color: '#0EA5E9', fontWeight: '500', marginLeft: scale(52), marginTop: verticalScale(-5) },
 
     // Search card styles
     searchCard: {
         backgroundColor: '#FFF',
-        marginHorizontal: 16,
+        marginHorizontal: scale(16),
         marginTop: 0,              // Handled by ScrollView
-        borderRadius: 20,
-        padding: 20,
+        borderRadius: scale(20),
+        padding: scale(20),
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 6 },
+        shadowOffset: { width: 0, height: verticalScale(6) },
         shadowOpacity: 0.10,
-        shadowRadius: 16,
+        shadowRadius: scale(16),
         elevation: 8,
     },
 
-    fieldLabel: { fontSize: 14, fontWeight: '700', color: '#0EA5E9', marginBottom: 8 }, // Teal-ish color from image
+    fieldLabel: { fontSize: scale(14), fontWeight: '700', color: '#0EA5E9', marginBottom: verticalScale(8) }, // Teal-ish color from image
 
-    dropdownField: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F1F5F9', borderRadius: 16, paddingHorizontal: 16, paddingVertical: 14, marginBottom: 8, borderWidth: 1, borderColor: '#E2E8F0' },
-    fieldIconBg: { width: 36, height: 36, borderRadius: 10, backgroundColor: '#0f1923', justifyContent: 'center', alignItems: 'center', marginRight: 12 },
-    fieldText: { flex: 1, fontSize: 16, fontWeight: '600', color: '#1A1A2E' },
+    dropdownField: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F1F5F9', borderRadius: scale(16), paddingHorizontal: scale(16), paddingVertical: verticalScale(14), marginBottom: verticalScale(8), borderWidth: 1, borderColor: '#E2E8F0' },
+    fieldIconBg: { width: scale(36), height: scale(36), borderRadius: scale(10), backgroundColor: '#0f1923', justifyContent: 'center', alignItems: 'center', marginRight: scale(12) },
+    fieldText: { flex: 1, fontSize: scale(16), fontWeight: '600', color: '#1A1A2E' },
     fieldPlaceholder: { color: '#94A3B8', fontWeight: '400' },
-    toRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 8, marginBottom: 4 },
-    swapButton: { width: 32, height: 32, borderRadius: 16, backgroundColor: '#F97316', justifyContent: 'center', alignItems: 'center', position: 'absolute', right: 10, top: -7, zIndex: 1, ...THEME.shadows.light },
+    toRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: verticalScale(8), marginBottom: verticalScale(4) },
+    swapButton: { width: scale(32), height: scale(32), borderRadius: scale(16), backgroundColor: '#F97316', justifyContent: 'center', alignItems: 'center', position: 'absolute', right: scale(10), top: verticalScale(-7), zIndex: 1, ...THEME.shadows.light },
 
-    searchButton: { borderRadius: 14, overflow: 'hidden', marginTop: 20, width: '85%', alignSelf: 'center' },
-    gradientButton: { paddingVertical: 16, alignItems: 'center', justifyContent: 'center' },
-    buttonText: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
+    searchButton: { borderRadius: scale(14), overflow: 'hidden', marginTop: verticalScale(20), width: '85%', alignSelf: 'center' },
+    gradientButton: { paddingVertical: verticalScale(16), alignItems: 'center', justifyContent: 'center' },
+    buttonText: { color: '#FFF', fontSize: scale(18), fontWeight: 'bold' },
 
     // Recent searches styles
-    recentSection: { marginTop: 24, paddingHorizontal: 24 },
-    recentHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
-    recentTitle: { fontSize: 18, fontWeight: '800', color: '#000' },
-    seeAll: { fontSize: 14, color: '#F97316', fontWeight: '600' },
-    recentCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F3F4F6', borderRadius: 16, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: '#E5E7EB' },
-    recentIconBg: { width: 44, height: 44, borderRadius: 10, backgroundColor: '#BAE6FD', justifyContent: 'center', alignItems: 'center', marginRight: 16 },
+    recentSection: { marginTop: verticalScale(24), paddingHorizontal: scale(24) },
+    recentHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: verticalScale(16) },
+    recentTitle: { fontSize: scale(18), fontWeight: '800', color: '#000' },
+    seeAll: { fontSize: scale(14), color: '#F97316', fontWeight: '600' },
+    recentCard: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#F3F4F6', borderRadius: scale(16), padding: scale(16), marginBottom: verticalScale(12), borderWidth: 1, borderColor: '#E5E7EB' },
+    recentIconBg: { width: scale(44), height: scale(44), borderRadius: scale(10), backgroundColor: '#BAE6FD', justifyContent: 'center', alignItems: 'center', marginRight: scale(16) },
     recentInfo: { flex: 1 },
-    recentRouteRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 2 },
-    recentRoute: { fontSize: 16, fontWeight: '700', color: '#1A1A2E' },
+    recentRouteRow: { flexDirection: 'row', alignItems: 'center', marginBottom: verticalScale(2) },
+    recentRoute: { fontSize: scale(16), fontWeight: '700', color: '#1A1A2E' },
     recentRouteArrow: {
-        fontSize: 15,
+        fontSize: scale(15),
         fontWeight: 'bold',
         color: '#000000ff',
-        marginTop: -3
+        marginTop: verticalScale(-3)
     },
-    recentDate: { fontSize: 12, color: '#64748B', fontWeight: '500' },
+    recentDate: { fontSize: scale(12), color: '#64748B', fontWeight: '500' },
 
     // City Selection Modal
     modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' },
-    modalContent: { backgroundColor: '#FFF', borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: 20, maxHeight: '70%' },
-    modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
-    modalTitle: { fontSize: 18, fontWeight: 'bold', color: '#1A1A2E' },
-    cityOption: { paddingVertical: 14, borderBottomWidth: 1, borderBottomColor: '#F1F5F9' },
-    cityOptionText: { fontSize: 16, color: '#1A1A2E' },
+    modalContent: { backgroundColor: '#FFF', borderTopLeftRadius: scale(24), borderTopRightRadius: scale(24), padding: scale(20), maxHeight: '70%' },
+    modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: verticalScale(16) },
+    modalTitle: { fontSize: scale(18), fontWeight: 'bold', color: '#1A1A2E' },
+    cityOption: { paddingVertical: verticalScale(14), borderBottomWidth: 1, borderBottomColor: '#F1F5F9' },
+    cityOptionText: { fontSize: scale(16), color: '#1A1A2E' },
 });
 
 export default SearchScreen;

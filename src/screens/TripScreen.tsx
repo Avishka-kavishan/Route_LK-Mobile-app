@@ -11,6 +11,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 import Trip from "../assets/svg/trip.svg";
 
@@ -44,7 +45,7 @@ const TripScreen = () => {
                     {/* Trip plane icon in white square */}
                     <View style={styles.searchHeaderRow}>
                         <View style={styles.searchIconBadge}>
-                            <Trip width={24} height={24} color={THEME.colors.secondary} />
+                            <Trip width={scale(24)} height={scale(24)} color={THEME.colors.secondary} />
                         </View>
                         <View style={styles.headerTextContainer}>
                             <Text style={styles.heroTitle}>My Trips</Text>
@@ -83,12 +84,12 @@ const TripScreen = () => {
                                 <View key={trip.id} style={styles.card}>
                                     <View style={styles.cardHeader}>
                                         <View style={styles.ticketBadge}>
-                                            <Tickets width={18} height={18} />
+                                            <Tickets width={scale(18)} height={scale(18)} />
                                         </View>
                                         <Text style={styles.ticketNumber}>{trip.ticketNumber}</Text>
                                         <View style={styles.flexCenter} />
                                         <View style={styles.locationBadge}>
-                                          <Location width={18} height={18} />
+                                          <Location width={scale(18)} height={scale(18)} />
                                         </View>
                                     </View>
 
@@ -97,7 +98,7 @@ const TripScreen = () => {
                                     <View style={styles.cardBody}>
                                         <View style={styles.routeRow}>
                                             <View style={styles.routeIconWrapper}>
-                                                <Ellipse width={10} height={10} style={styles.boldIcon} />
+                                                <Ellipse width={scale(10)} height={scale(10)} style={styles.boldIcon} />
                                             </View>
                                             <View style={styles.routeContent}>
                                                 <View style={styles.routeDetails}>
@@ -113,7 +114,7 @@ const TripScreen = () => {
 
                                         <View style={[styles.routeRow, styles.arrivalRow]}>
                                             <View style={styles.routeIconWrapper}>
-                                                <Ellipse width={10} height={10} style={styles.boldIcon} />
+                                                <Ellipse width={scale(10)} height={scale(10)} style={styles.boldIcon} />
                                             </View>
                                             <View style={styles.routeContent}>
                                                 <View style={styles.routeDetails}>
@@ -132,7 +133,7 @@ const TripScreen = () => {
                         </View>
                     ) : (
                         <View style={styles.emptyState}>
-                            <Icon name="ticket-outline" size={64} color={THEME.colors.textSecondary} />
+                            <Icon name="ticket-outline" size={scale(64)} color={THEME.colors.textSecondary} />
                             <Text style={styles.emptyStateTitle}>No Past Trips</Text>
                             <Text style={styles.emptyStateSub}>You don't have any past trips recorded yet.</Text>
                         </View>
@@ -149,67 +150,67 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
     },
     scrollContent: {
-        paddingBottom: 40,
+        paddingBottom: verticalScale(40),
     },
-    header: { width: '100%', height: 170, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, overflow: 'hidden' },
+    header: { width: '100%', height: verticalScale(170), borderBottomLeftRadius: scale(20), borderBottomRightRadius: scale(20), overflow: 'hidden' },
     
-    headerImage: { width:"104%",
-        height:170,
+    headerImage: { width: wp(104),
+        height: verticalScale(170),
         resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft:-10},
+        marginLeft: scale(-10)},
 
     gradientOverlay: {
-        paddingTop: 60,
-        paddingBottom: 40,
-        paddingHorizontal: 20,
+        paddingTop: verticalScale(60),
+        paddingBottom: verticalScale(40),
+        paddingHorizontal: scale(20),
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
-        borderRadius: 20,
-        height: 170
+        borderRadius: scale(20),
+        height: verticalScale(170)
     },
     searchHeaderRow: {
         alignItems: 'center',
         flexDirection: 'row',
     },
     searchIconBadge: {
-        width: 40,
-        height: 40,
+        width: scale(40),
+        height: scale(40),
         backgroundColor: '#FFF',
-        borderRadius: 8,
+        borderRadius: scale(8),
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 12
+        marginRight: scale(12)
     },
     headerTextContainer: { justifyContent: 'center' },
-    heroTitle: { fontSize: 22, fontWeight: 'bold', color: '#FFF', marginTop: 1 },
-    heroSub: { fontSize: 14, color: '#0BA5EC', fontWeight: '500', marginLeft: 52, marginTop: -5 },
+    heroTitle: { fontSize: scale(22), fontWeight: 'bold', color: '#FFF', marginTop: verticalScale(1) },
+    heroSub: { fontSize: scale(14), color: '#0BA5EC', fontWeight: '500', marginLeft: scale(52), marginTop: verticalScale(-5) },
     tabsWrapper: {
-        paddingHorizontal: 16,
-        marginTop: -50,
-        paddingTop: 20,
+        paddingHorizontal: scale(16),
+        marginTop: verticalScale(-50),
+        paddingTop: verticalScale(20),
         zIndex: 1,
     },
     tabsContainer: {
         flexDirection: 'row',
         backgroundColor: '#F3F4F6',
-        borderRadius: 8,
-        padding: 4,
-        marginBottom: 20,
+        borderRadius: scale(8),
+        padding: scale(4),
+        marginBottom: verticalScale(20),
         elevation: 2,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
+        shadowOffset: { width: 0, height: verticalScale(1) },
         shadowOpacity: 0.1,
-        shadowRadius: 2,
+        shadowRadius: scale(2),
     },
     cardsWrapper: {
-        paddingHorizontal: 16,
+        paddingHorizontal: scale(16),
     },
     tabButton: {
         flex: 1,
-        paddingVertical: 12,
+        paddingVertical: verticalScale(12),
         alignItems: 'center',
-        borderRadius: 8,
+        borderRadius: scale(8),
     },
     activeTabButton: {
         backgroundColor: '#0BA5EC',
@@ -217,40 +218,40 @@ const styles = StyleSheet.create({
     tabButtonText: {
         color: '#1F2937',
         fontWeight: '500',
-        fontSize: 15,
+        fontSize: scale(15),
     },
     activeTabButtonText: {
         color: '#FFF',
         fontWeight: 'bold',
     },
     cardsContainer: {
-        marginTop: 5,
+        marginTop: verticalScale(5),
     },
     card: {
         backgroundColor: '#F3F4F6',
-        borderRadius: 8,
-        marginBottom: 16,
-        paddingTop: 16,
-        paddingBottom: 20,
+        borderRadius: scale(8),
+        marginBottom: verticalScale(16),
+        paddingTop: verticalScale(16),
+        paddingBottom: verticalScale(20),
     },
     cardHeader: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 16,
-        marginBottom: 16,
+        paddingHorizontal: scale(16),
+        marginBottom: verticalScale(16),
     },
     ticketBadge: {
         alignItems: 'center',
         justifyContent: 'center',
-        width: 30,
-        height: 30,
+        width: scale(30),
+        height: scale(30),
         borderWidth: 1,
         borderColor: '#9CA3AF',
-        borderRadius: 20,
-        marginRight: 10,
+        borderRadius: scale(20),
+        marginRight: scale(10),
     },
     ticketNumber: {
-        fontSize: 14,
+        fontSize: scale(14),
         fontWeight: '500',
         color: '#111827',
     },
@@ -259,9 +260,9 @@ const styles = StyleSheet.create({
     },
     locationBadge: {
         backgroundColor: '#E5E7EB',
-        width: 32,
-        height: 32,
-        borderRadius: 16,
+        width: scale(32),
+        height: scale(32),
+        borderRadius: scale(16),
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -270,26 +271,26 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#D1D5DB',
         borderStyle: 'dashed',
-        marginHorizontal: 16,
-        marginBottom: 16,
+        marginHorizontal: scale(16),
+        marginBottom: verticalScale(16),
         borderRadius: 1,
     },
     cardBody: {
-        paddingHorizontal: 16,
+        paddingHorizontal: scale(16),
     },
     routeRow: {
         flexDirection: 'row',
         alignItems: 'flex-start',
     },
     arrivalRow: {
-        marginTop: 18,
+        marginTop: verticalScale(18),
     },
     routeIconWrapper: {
-        marginRight: 10,
-        paddingTop: 3,
+        marginRight: scale(10),
+        paddingTop: verticalScale(3),
     },
     boldIcon: {
-        marginTop: 10,
+        marginTop: verticalScale(10),
     },
     routeContent: {
         flex: 1,
@@ -301,13 +302,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cityName: {
-        fontSize: 15,
+        fontSize: scale(15),
         fontWeight: '600',
         color: '#111827',
-        marginBottom: 2,
+        marginBottom: verticalScale(2),
     },
     routeLabel: {
-        fontSize: 11,
+        fontSize: scale(11),
         fontWeight: '600',
         color: '#9CA3AF',
         textTransform: 'uppercase',
@@ -316,32 +317,32 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     timeText: {
-        fontSize: 13,
+        fontSize: scale(13),
         fontWeight: '500',
         color: '#9CA3AF',
-        marginBottom: 2,
+        marginBottom: verticalScale(2),
     },
     dateText: {
-        fontSize: 12,
+        fontSize: scale(12),
         fontWeight: '500',
         color: '#9CA3AF',
     },
     emptyState: {
         alignItems: 'center',
-        marginTop: 60,
+        marginTop: verticalScale(60),
     },
     emptyStateTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: '#1F2937',
-        marginTop: 16,
+        marginTop: verticalScale(16),
     },
     emptyStateSub: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: '#6B7280',
         textAlign: 'center',
-        marginTop: 8,
-        paddingHorizontal: 20,
+        marginTop: verticalScale(8),
+        paddingHorizontal: scale(20),
     },
 });
 

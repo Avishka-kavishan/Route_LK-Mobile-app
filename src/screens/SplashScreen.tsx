@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import Splash from "../assets/svg/splash.svg";
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 type SplashScreenProps = {
     navigation: StackNavigationProp<RootStackParamList, 'Splash'>;
@@ -51,7 +52,7 @@ const SplashScreen = ({ navigation }: SplashScreenProps) => {
                     },
                 ]}
             >
-                <Splash width={80} height={80} color="#0EA5E9" />
+                <Splash width={scale(80)} height={scale(80)} color="#0EA5E9" />
             </Animated.View>
         </View>
     );
@@ -65,16 +66,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoBox: {
-        width: 110,
-        height: 110,
+        width: scale(110),
+        height: scale(110),
         backgroundColor: '#FFFFFF',
-        borderRadius: 28,
+        borderRadius: scale(28),
         justifyContent: 'center',
         alignItems: 'center',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
+        shadowOffset: { width: 0, height: verticalScale(8) },
         shadowOpacity: 0.15,
-        shadowRadius: 20,
+        shadowRadius: scale(20),
         elevation: 12,
     },
 });

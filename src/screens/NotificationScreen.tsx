@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 import Back from '../assets/svg/back.svg'
 
 type NotificationScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
@@ -91,7 +92,7 @@ const NotificationScreen = ({ navigation }: Props) => {
                     style={styles.backButton}
                     onPress={() => navigation.goBack()}
                 >
-                    <Back width={24} height={24} />
+                    <Back width={scale(24)} height={scale(24)} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Notifications</Text>
             </View>
@@ -110,7 +111,7 @@ const NotificationScreen = ({ navigation }: Props) => {
                                 activeOpacity={0.7}
                             >
                                 <View style={[styles.iconContainer, { backgroundColor: getIconColor(item.type) + '15' }]}>
-                                    <Icon name={getIconName(item.type)} size={24} color={getIconColor(item.type)} />
+                                    <Icon name={getIconName(item.type)} size={scale(24)} color={getIconColor(item.type)} />
                                 </View>
                                 
                                 <View style={styles.contentContainer}>
@@ -129,7 +130,7 @@ const NotificationScreen = ({ navigation }: Props) => {
                 ) : (
                     <View style={styles.emptyContainer}>
                         <View style={styles.emptyIconCircle}>
-                            <Icon name="bell-off-outline" size={48} color={THEME.colors.textSecondary} />
+                            <Icon name="bell-off-outline" size={scale(48)} color={THEME.colors.textSecondary} />
                         </View>
                         <Text style={styles.emptyTitle}>No Notifications Yet</Text>
                         <Text style={styles.emptySub}>We'll notify you when something important happens.</Text>
@@ -148,55 +149,55 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 20,
-        paddingVertical: 15,
+        paddingHorizontal: scale(20),
+        paddingVertical: verticalScale(15),
         borderBottomWidth: 1,
         borderBottomColor: '#F1F5F9',
-        marginTop:60
+        marginTop: verticalScale(60)
     },
     backButton: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
+        width: scale(40),
+        height: scale(40),
+        borderRadius: scale(20),
         backgroundColor: '#F8F9FE',
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 12,
+        marginRight: scale(12),
     },
     headerTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
         textAlign:"center",
         flex:1,
-        marginLeft:-52
+        marginLeft: scale(-52)
     },
     markReadButton: {
-        paddingVertical: 4,
+        paddingVertical: verticalScale(4),
     },
     markReadText: {
-        fontSize: 13,
+        fontSize: scale(13),
         color: THEME.colors.secondary,
         fontWeight: '600',
     },
     scrollContent: {
-        padding: 20,
-        paddingBottom: 40,
+        padding: scale(20),
+        paddingBottom: verticalScale(40),
     },
     sectionTitle: {
-        fontSize: 14,
+        fontSize: scale(14),
         fontWeight: '700',
         color: THEME.colors.textSecondary,
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
         textTransform: 'uppercase',
         letterSpacing: 1,
     },
     notificationCard: {
         flexDirection: 'row',
-        padding: 16,
-        borderRadius: 16,
+        padding: scale(16),
+        borderRadius: scale(16),
         backgroundColor: '#F8F9FE',
-        marginBottom: 12,
+        marginBottom: verticalScale(12),
         alignItems: 'center',
     },
     unreadCard: {
@@ -206,12 +207,12 @@ const styles = StyleSheet.create({
         ...THEME.shadows.light,
     },
     iconContainer: {
-        width: 48,
-        height: 48,
-        borderRadius: 14,
+        width: scale(48),
+        height: scale(48),
+        borderRadius: scale(14),
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 16,
+        marginRight: scale(16),
     },
     contentContainer: {
         flex: 1,
@@ -220,27 +221,27 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 4,
+        marginBottom: verticalScale(4),
     },
     notifTitle: {
-        fontSize: 15,
+        fontSize: scale(15),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     unreadDot: {
-        width: 8,
-        height: 8,
-        borderRadius: 4,
+        width: scale(8),
+        height: scale(8),
+        borderRadius: scale(4),
         backgroundColor: THEME.colors.secondary,
     },
     notifDescription: {
-        fontSize: 13,
+        fontSize: scale(13),
         color: THEME.colors.textSecondary,
-        lineHeight: 18,
-        marginBottom: 6,
+        lineHeight: scale(18),
+        marginBottom: verticalScale(6),
     },
     notifTime: {
-        fontSize: 12,
+        fontSize: scale(12),
         color: THEME.colors.textSecondary,
         fontWeight: '500',
     },
@@ -248,29 +249,29 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 100,
+        marginTop: verticalScale(100),
     },
     emptyIconCircle: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+        width: scale(100),
+        height: scale(100),
+        borderRadius: scale(50),
         backgroundColor: '#F8F9FE',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
+        marginBottom: verticalScale(20),
     },
     emptyTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
-        marginBottom: 8,
+        marginBottom: verticalScale(8),
     },
     emptySub: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
         textAlign: 'center',
-        paddingHorizontal: 40,
-        lineHeight: 20,
+        paddingHorizontal: scale(40),
+        lineHeight: scale(20),
     },
 });
 

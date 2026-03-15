@@ -18,6 +18,7 @@ import { THEME } from '../theme';
 import LinearGradient from 'react-native-linear-gradient';
 import Profile from '../assets/svg/profile.svg';
 import RightArrow from '../assets/svg/rigtArrow.svg';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 
 const ProfileScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -96,10 +97,10 @@ const ProfileOption = ({
 }) => (
     <TouchableOpacity style={styles.option} onPress={onPress} activeOpacity={0.7}>
         <View style={styles.optionLeft}>
-            {icon && <Icon name={icon} size={24} color="#1A1A2E" style={styles.optionIcon} />}
+            {icon && <Icon name={icon} size={scale(24)} color="#1A1A2E" style={styles.optionIcon} />}
             <Text style={[styles.optionLabel, isLogout && styles.logoutLabel]}>{label}</Text>
         </View>
-        <RightArrow width={24} height={24} color="#1A1A2E" />
+        <RightArrow width={scale(24)} height={scale(24)} color="#1A1A2E" />
     </TouchableOpacity>
 );
 
@@ -109,69 +110,69 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
     },
     scrollContent: {
-        paddingBottom: 40,
+        paddingBottom: verticalScale(40),
     },
     header: {
         width: '100%',
-        height:170, 
-        borderBottomLeftRadius: 20, 
-        borderBottomRightRadius: 20, 
+        height: verticalScale(170), 
+        borderBottomLeftRadius: scale(20), 
+        borderBottomRightRadius: scale(20), 
         overflow: 'hidden',
         alignContent:'center'
     },
     headerImage: {
-        width:"104%",
-        height:170,
+        width: wp(104),
+        height: verticalScale(170),
         resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft:-10
+        marginLeft: scale(-10)
     },
     gradientOverlay: {
-        paddingTop: 60,
-        paddingBottom: 80,
-        paddingHorizontal: 20,
+        paddingTop: verticalScale(60),
+        paddingBottom: verticalScale(80),
+        paddingHorizontal: scale(20),
         backgroundColor: 'rgba(0, 0, 0, 0.05)',
-        borderRadius: 20,
-        height:170
+        borderRadius: scale(20),
+        height: verticalScale(170)
     },
     headerTopRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 4,
+        marginBottom: verticalScale(4),
     },
     profileIconBadge: {
-        width: 40,
-        height: 40,
+        width: scale(40),
+        height: scale(40),
         backgroundColor: '#FFF',
-        borderRadius: 8,
+        borderRadius: scale(8),
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 12
+        marginRight: scale(12)
     },
     headerTitle: {
-        fontSize: 22, 
+        fontSize: scale(22), 
         fontWeight: 'bold', 
         color: '#FFF', 
-        marginTop: 1
+        marginTop: verticalScale(1)
     },
     manageAccountText: {
-        fontSize: 14, 
+        fontSize: scale(14), 
         color: '#0BA5EC',
         fontWeight: '500', 
-        marginLeft: 52, 
-        marginTop: -10
+        marginLeft: scale(52), 
+        marginTop: verticalScale(-10)
     },
     profileInfoContainer: {
         alignItems: 'center',
-        marginTop: -40,
-        marginBottom: 20,
+        marginTop: verticalScale(-40),
+        marginBottom: verticalScale(20),
     },
     avatarWrapper: {
-        width: 120,
-        height: 120,
-        borderRadius: 60,
-        borderWidth: 4,
+        width: scale(120),
+        height: scale(120),
+        borderRadius: scale(60),
+        borderWidth: scale(4),
         borderColor: '#0EA5E9',
         overflow: 'hidden',
         backgroundColor: '#FFF',
@@ -182,46 +183,46 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     userName: {
-        fontSize: 22,
+        fontSize: scale(22),
         fontWeight: 'bold',
         color: '#1A1A2E',
-        marginTop: 12,
+        marginTop: verticalScale(12),
     },
     userEmail: {
-        fontSize: 15,
+        fontSize: scale(15),
         color: '#1A1A2E',
         opacity: 0.7,
-        marginTop: 4,
+        marginTop: verticalScale(4),
     },
     settingsSection: {
-        paddingHorizontal: 20,
+        paddingHorizontal: scale(20),
     },
     settingsCard: {
         backgroundColor: '#F3F4F6',
-        borderRadius: 16,
-        padding: 20,
+        borderRadius: scale(16),
+        padding: scale(20),
     },
     sectionTitle: {
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: '600',
         color: '#9CA3AF',
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
     },
     option: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingVertical: 14,
+        paddingVertical: verticalScale(14),
     },
     optionLeft: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     optionIcon: {
-        marginRight: 12,
+        marginRight: scale(12),
     },
     optionLabel: {
-        fontSize: 17,
+        fontSize: scale(17),
         fontWeight: '600',
         color: '#1A1A2E',
     },

@@ -11,6 +11,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -35,7 +36,7 @@ const BookingSummaryScreen = ({ navigation, route }: BookingSummaryScreenProps) 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <View style={styles.successSection}>
                     <View style={styles.successIcon}>
-                        <Icon name="check-circle" size={80} color={THEME.colors.success} />
+                        <Icon name="check-circle" size={scale(80)} color={THEME.colors.success} />
                     </View>
                     <Text style={styles.successTitle}>Review Your Booking</Text>
                     <Text style={styles.successSubtitle}>Please verify all details before payment</Text>
@@ -97,7 +98,7 @@ const BookingSummaryScreen = ({ navigation, route }: BookingSummaryScreenProps) 
 const DetailRow = ({ label, value, icon }: { label: string; value: string; icon: string }) => (
     <View style={styles.detailRow}>
         <View style={styles.iconContainer}>
-            <Icon name={icon} size={20} color={THEME.colors.primary} />
+            <Icon name={icon} size={scale(20)} color={THEME.colors.primary} />
         </View>
         <View>
             <Text style={styles.detailLabel}>{label}</Text>
@@ -114,80 +115,80 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16,
+        padding: scale(16),
         backgroundColor: '#FFF',
         ...THEME.shadows.light,
     },
     backButton: {
-        padding: 8,
+        padding: scale(8),
     },
     headerTitle: {
-        fontSize: 20,
+        fontSize: scale(20),
         fontWeight: 'bold',
         color: THEME.colors.text,
-        marginLeft: 12,
+        marginLeft: scale(12),
     },
     scrollContent: {
-        padding: 20,
+        padding: scale(20),
     },
     successSection: {
         alignItems: 'center',
-        marginBottom: 30,
-        marginTop: 10,
+        marginBottom: verticalScale(30),
+        marginTop: verticalScale(10),
     },
     successIcon: {
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
     },
     successTitle: {
-        fontSize: 24,
+        fontSize: scale(24),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     successSubtitle: {
-        fontSize: 16,
+        fontSize: scale(16),
         color: THEME.colors.textSecondary,
-        marginTop: 4,
+        marginTop: verticalScale(4),
     },
     detailsCard: {
         backgroundColor: '#FFF',
-        borderRadius: THEME.radius.lg,
-        padding: 20,
-        marginBottom: 20,
+        borderRadius: scale(THEME.radius.lg),
+        padding: scale(20),
+        marginBottom: verticalScale(20),
         ...THEME.shadows.medium,
     },
     cardTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
     },
     detailRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
     },
     iconContainer: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
+        width: scale(40),
+        height: scale(40),
+        borderRadius: scale(20),
         backgroundColor: '#F8F9FE',
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: 12,
+        marginRight: scale(12),
     },
     detailLabel: {
-        fontSize: 12,
+        fontSize: scale(12),
         color: THEME.colors.textSecondary,
     },
     detailValue: {
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: '600',
         color: THEME.colors.text,
     },
     divider: {
         height: 1,
         backgroundColor: THEME.colors.border,
-        marginVertical: 16,
+        marginVertical: verticalScale(16),
     },
     seatsRow: {
         flexDirection: 'row',
@@ -195,70 +196,70 @@ const styles = StyleSheet.create({
     },
     seatBadge: {
         backgroundColor: THEME.colors.primary,
-        paddingHorizontal: 12,
-        paddingVertical: 6,
-        borderRadius: THEME.radius.sm,
-        marginRight: 8,
-        marginBottom: 8,
+        paddingHorizontal: scale(12),
+        paddingVertical: verticalScale(6),
+        borderRadius: scale(THEME.radius.sm),
+        marginRight: scale(8),
+        marginBottom: verticalScale(8),
     },
     seatText: {
         color: '#FFF',
         fontWeight: 'bold',
-        fontSize: 12,
+        fontSize: scale(12),
     },
     priceCard: {
         backgroundColor: '#FFF',
-        borderRadius: THEME.radius.lg,
-        padding: 20,
-        marginBottom: 30,
+        borderRadius: scale(THEME.radius.lg),
+        padding: scale(20),
+        marginBottom: verticalScale(30),
         ...THEME.shadows.medium,
     },
     priceRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 12,
+        marginBottom: verticalScale(12),
     },
     priceLabel: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
     },
     priceValue: {
-        fontSize: 14,
+        fontSize: scale(14),
         fontWeight: '600',
         color: THEME.colors.text,
     },
     totalRow: {
-        marginTop: 8,
-        paddingTop: 16,
+        marginTop: verticalScale(8),
+        paddingTop: verticalScale(16),
         borderTopWidth: 1,
         borderTopColor: THEME.colors.border,
     },
     totalLabel: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     totalValue: {
-        fontSize: 22,
+        fontSize: scale(22),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },
     footer: {
-        padding: 20,
+        padding: scale(20),
         backgroundColor: '#FFF',
         ...THEME.shadows.medium,
     },
     payButton: {
-        borderRadius: THEME.radius.md,
+        borderRadius: scale(THEME.radius.md),
         overflow: 'hidden',
     },
     gradientButton: {
-        paddingVertical: 16,
+        paddingVertical: verticalScale(16),
         alignItems: 'center',
     },
     buttonText: {
         color: '#FFF',
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
     },
 });

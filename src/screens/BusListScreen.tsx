@@ -10,6 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -106,7 +107,7 @@ const BusListScreen = ({ navigation, route }: BusListScreenProps) => {
                 <View style={styles.durationLine}>
                     <View style={styles.dot} />
                     <View style={styles.line} />
-                    <Icon name="bus" size={20} color={THEME.colors.primary} />
+                    <Icon name="bus" size={scale(20)} color={THEME.colors.primary} />
                     <View style={styles.line} />
                     <View style={styles.dot} />
                 </View>
@@ -119,9 +120,9 @@ const BusListScreen = ({ navigation, route }: BusListScreenProps) => {
 
             <View style={styles.cardFooter}>
                 <View style={styles.amenities}>
-                    {item.isAC && <Icon name="snowflake" size={18} color={THEME.colors.secondary} style={{ marginRight: 8 }} />}
-                    <Icon name="wifi" size={18} color={THEME.colors.textSecondary} style={{ marginRight: 8 }} />
-                    <Icon name="power-plug" size={18} color={THEME.colors.textSecondary} />
+                    {item.isAC && <Icon name="snowflake" size={scale(18)} color={THEME.colors.secondary} style={{ marginRight: scale(8) }} />}
+                    <Icon name="wifi" size={scale(18)} color={THEME.colors.textSecondary} style={{ marginRight: scale(8) }} />
+                    <Icon name="power-plug" size={scale(18)} color={THEME.colors.textSecondary} />
                 </View>
                 <View style={styles.priceSection}>
                     <Text style={styles.priceLabel}>From</Text>
@@ -135,7 +136,7 @@ const BusListScreen = ({ navigation, route }: BusListScreenProps) => {
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-                    <Icon name="arrow-left" size={24} color={THEME.colors.text} />
+                    <Icon name="arrow-left" size={scale(24)} color={THEME.colors.text} />
                 </TouchableOpacity>
                 <View style={styles.headerTitleContainer}>
                     <Text style={styles.headerTitle}>{startPoint} to {endPoint}</Text>
@@ -162,82 +163,82 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16,
+        padding: scale(16),
         backgroundColor: '#FFF',
         ...THEME.shadows.light,
     },
     backButton: {
-        padding: 8,
+        padding: scale(8),
     },
     headerTitleContainer: {
-        marginLeft: 12,
+        marginLeft: scale(12),
     },
     headerTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     headerSubtitle: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
     },
     listContent: {
-        padding: 16,
+        padding: scale(16),
     },
     busCard: {
         backgroundColor: '#FFF',
-        borderRadius: THEME.radius.md,
-        padding: 16,
-        marginBottom: 16,
+        borderRadius: scale(THEME.radius.md),
+        padding: scale(16),
+        marginBottom: verticalScale(16),
         ...THEME.shadows.medium,
     },
     cardHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
     },
     busName: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     busType: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
     },
     ratingBadge: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 8,
-        paddingVertical: 4,
-        borderRadius: THEME.radius.sm,
+        paddingHorizontal: scale(8),
+        paddingVertical: verticalScale(4),
+        borderRadius: scale(THEME.radius.sm),
     },
     ratingText: {
         color: '#FFF',
-        fontSize: 12,
+        fontSize: scale(12),
         fontWeight: 'bold',
-        marginLeft: 4,
+        marginLeft: scale(4),
     },
     routeSection: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 20,
+        marginBottom: verticalScale(20),
     },
     timePoint: {
         alignItems: 'center',
         flex: 1,
     },
     time: {
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     location: {
-        fontSize: 12,
+        fontSize: scale(12),
         color: THEME.colors.textSecondary,
-        marginTop: 2,
+        marginTop: verticalScale(2),
     },
     durationLine: {
         flexDirection: 'row',
@@ -246,16 +247,16 @@ const styles = StyleSheet.create({
         flex: 1.5,
     },
     dot: {
-        width: 6,
-        height: 6,
-        borderRadius: 3,
+        width: scale(6),
+        height: scale(6),
+        borderRadius: scale(3),
         backgroundColor: THEME.colors.primary,
     },
     line: {
         flex: 1,
         height: 1,
         backgroundColor: THEME.colors.border,
-        marginHorizontal: 4,
+        marginHorizontal: scale(4),
     },
     cardFooter: {
         flexDirection: 'row',
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         borderTopWidth: 1,
         borderTopColor: THEME.colors.border,
-        paddingTop: 12,
+        paddingTop: verticalScale(12),
     },
     amenities: {
         flexDirection: 'row',
@@ -273,12 +274,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     priceLabel: {
-        fontSize: 10,
+        fontSize: scale(10),
         color: THEME.colors.textSecondary,
         textTransform: 'uppercase',
     },
     price: {
-        fontSize: 20,
+        fontSize: scale(20),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },

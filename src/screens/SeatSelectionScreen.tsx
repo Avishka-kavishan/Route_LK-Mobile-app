@@ -10,6 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { THEME } from '../theme';
+import { scale, verticalScale, moderateScale, wp, hp } from '../utils/responsive';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
@@ -54,7 +55,7 @@ const SeatSelectionScreen = ({ navigation, route }: SeatSelectionScreenProps) =>
             >
                 <Icon
                     name="seat"
-                    size={24}
+                    size={scale(24)}
                     color={isOccupied ? '#CBD5E1' : isSelected ? '#FFF' : THEME.colors.primary}
                 />
                 <Text style={[
@@ -98,7 +99,7 @@ const SeatSelectionScreen = ({ navigation, route }: SeatSelectionScreenProps) =>
                 {/* Front of Bus indicator */}
                 <View style={styles.busFront}>
                     <View style={styles.driverSection}>
-                        <Icon name="steering" size={32} color={THEME.colors.textSecondary} />
+                        <Icon name="steering" size={scale(32)} color={THEME.colors.textSecondary} />
                         <Text style={styles.frontText}>Front</Text>
                     </View>
                 </View>
@@ -162,41 +163,41 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 16,
+        padding: scale(16),
         backgroundColor: '#FFF',
         borderBottomWidth: 1,
         borderBottomColor: THEME.colors.border,
     },
     backButton: {
-        padding: 8,
+        padding: scale(8),
     },
     headerTitleContainer: {
-        marginLeft: 12,
+        marginLeft: scale(12),
     },
     headerTitle: {
-        fontSize: 18,
+        fontSize: scale(18),
         fontWeight: 'bold',
         color: THEME.colors.text,
     },
     headerSubtitle: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
     },
     scrollContent: {
-        padding: 24,
+        padding: scale(24),
     },
     busFront: {
-        paddingVertical: 20,
-        borderBottomWidth: 2,
+        paddingVertical: verticalScale(20),
+        borderBottomWidth: scale(2),
         borderBottomColor: THEME.colors.border,
-        marginBottom: 30,
+        marginBottom: verticalScale(30),
     },
     driverSection: {
         alignItems: 'flex-end',
-        paddingRight: 20,
+        paddingRight: scale(20),
     },
     frontText: {
-        fontSize: 12,
+        fontSize: scale(12),
         color: THEME.colors.textSecondary,
         fontWeight: 'bold',
         textTransform: 'uppercase',
@@ -204,20 +205,20 @@ const styles = StyleSheet.create({
     legend: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginBottom: 40,
+        marginBottom: verticalScale(40),
     },
     legendItem: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     legendBox: {
-        width: 20,
-        height: 20,
-        borderRadius: 4,
-        marginRight: 8,
+        width: scale(20),
+        height: scale(20),
+        borderRadius: scale(4),
+        marginRight: scale(8),
     },
     legendText: {
-        fontSize: 12,
+        fontSize: scale(12),
         color: THEME.colors.textSecondary,
     },
     seatsContainer: {
@@ -225,23 +226,23 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        marginBottom: 16,
+        marginBottom: verticalScale(16),
         alignItems: 'center',
     },
     pair: {
         flexDirection: 'row',
     },
     aisle: {
-        width: 40,
+        width: scale(40),
     },
     seat: {
-        width: 50,
-        height: 50,
+        width: scale(50),
+        height: scale(50),
         backgroundColor: '#F1F5F9',
-        borderRadius: 8,
+        borderRadius: scale(8),
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal: 6,
+        marginHorizontal: scale(6),
         borderWidth: 1,
         borderColor: THEME.colors.border,
     },
@@ -254,13 +255,13 @@ const styles = StyleSheet.create({
         borderColor: '#CBD5E1',
     },
     seatLabel: {
-        fontSize: 10,
+        fontSize: scale(10),
         fontWeight: 'bold',
         color: THEME.colors.textSecondary,
-        marginTop: 2,
+        marginTop: verticalScale(2),
     },
     footer: {
-        padding: 24,
+        padding: scale(24),
         backgroundColor: '#FFF',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -270,16 +271,16 @@ const styles = StyleSheet.create({
         borderTopColor: THEME.colors.border,
     },
     selectedCount: {
-        fontSize: 14,
+        fontSize: scale(14),
         color: THEME.colors.textSecondary,
     },
     totalPrice: {
-        fontSize: 24,
+        fontSize: scale(24),
         fontWeight: 'bold',
         color: THEME.colors.primary,
     },
     confirmButton: {
-        borderRadius: THEME.radius.md,
+        borderRadius: scale(THEME.radius.md),
         overflow: 'hidden',
         flex: 0.7,
     },
@@ -287,12 +288,12 @@ const styles = StyleSheet.create({
         opacity: 0.5,
     },
     gradientButton: {
-        paddingVertical: 14,
+        paddingVertical: verticalScale(14),
         alignItems: 'center',
     },
     buttonText: {
         color: '#FFF',
-        fontSize: 16,
+        fontSize: scale(16),
         fontWeight: 'bold',
     },
 });
