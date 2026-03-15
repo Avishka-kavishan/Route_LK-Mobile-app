@@ -107,7 +107,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                             </Text>
                         </View>
 
-                        <TouchableOpacity 
+                        <TouchableOpacity
                             style={styles.bellButton}
                             onPress={() => navigation.navigate('Notifications')}
                             activeOpacity={0.7}

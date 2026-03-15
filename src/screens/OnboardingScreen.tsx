@@ -50,16 +50,16 @@ const OnboardingScreen = () => {
                         </Text>
 
                         <View style={styles.buttonContainer}>
-                            <TouchableOpacity 
-                                style={styles.loginButton} 
+                            <TouchableOpacity
+                                style={styles.loginButton}
                                 activeOpacity={0.8}
                                 onPress={handleLogin}
                             >
                                 <Text style={styles.loginButtonText}>Log in</Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity 
-                                style={styles.joinButton} 
+                            <TouchableOpacity
+                                style={styles.joinButton}
                                 activeOpacity={0.8}
                                 onPress={handleJoin}
                             >
@@ -69,7 +69,7 @@ const OnboardingScreen = () => {
                     </View>
                 </SafeAreaView>
             </ImageBackground>
-            
+
         </View>
     );
 };
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundImage: {
         width: SCREEN_WIDTH,
         height: SCREEN_HEIGHT,
-        
+
     },
     overlay: {
         flex: 1,
@@ -89,10 +89,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoContainer: {
-        marginTop: verticalScale(60),
+        marginTop: verticalScale(50),
     },
     logoText: {
-        fontSize: ms(32),
+        fontSize: ms(28),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,

@@ -49,8 +49,8 @@ const SignInScreen = () => {
 
                     {/* Scrolling Content Card */}
                     <View style={styles.cardContainer}>
-                        <ScrollView 
-                            style={styles.card} 
+                        <ScrollView
+                            style={styles.card}
                             contentContainerStyle={styles.cardContent}
                             showsVerticalScrollIndicator={false}
                             bounces={true}
@@ -85,8 +85,8 @@ const SignInScreen = () => {
                                 </View>
 
                                 {/* Log in Button (text "Sign Up" in mockup, but user called it Log in) */}
-                                <TouchableOpacity 
-                                    style={styles.loginButton} 
+                                <TouchableOpacity
+                                    style={styles.loginButton}
                                     onPress={handleLogin}
                                     activeOpacity={0.8}
                                 >
@@ -119,9 +119,9 @@ const SignInScreen = () => {
                             {/* Footer */}
                             <View style={styles.footer}>
                                 <Text style={styles.footerText}>don’t have an account? </Text>
-                                    <TouchableOpacity>
+                                <TouchableOpacity>
                                     <Text style={styles.signInText}>Sign up</Text>
-                                    </TouchableOpacity>
+                                </TouchableOpacity>
                             </View>
                         </ScrollView>
                     </View>
@@ -145,10 +145,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoContainer: {
-        marginTop: verticalScale(60),
+        marginTop: verticalScale(50),
     },
     logoText: {
-        fontSize: ms(32),
+        fontSize: ms(28),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -165,20 +165,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         borderTopLeftRadius: scale(40),
         borderTopRightRadius: scale(40),
-        marginTop: verticalScale(320), // Standard offset or HP(40)
+        marginTop: verticalScale(350), // Standard offset or HP(40)
     },
     cardContent: {
         paddingHorizontal: scale(24),
-        paddingTop: verticalScale(32),
+        paddingTop: verticalScale(26),
         paddingBottom: verticalScale(20), // Reduced from 80
         alignItems: 'center',
     },
     title: {
-        fontSize: ms(28, 0.7),
+        fontSize: ms(26, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
-        marginBottom: verticalScale(8),
+        marginBottom: verticalScale(2),
     },
     subtitle: {
         fontSize: ms(16),
