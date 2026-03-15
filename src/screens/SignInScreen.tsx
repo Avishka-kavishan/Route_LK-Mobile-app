@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         marginTop: verticalScale(50),
     },
     logoText: {
-        fontSize: ms(28),
+        fontSize: ms(26),
         fontWeight: 'bold',
         color: '#FFFFFF',
         letterSpacing: 1,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: ms(26, 0.7),
+        fontSize: ms(24, 0.7),
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
