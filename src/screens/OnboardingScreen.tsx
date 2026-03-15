@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
-        marginBottom: verticalScale(1),
+        marginBottom: verticalScale(10),
     },
     description: {
         fontSize: ms(16),
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         lineHeight: ms(26),
         marginBottom: verticalScale(32),
         paddingHorizontal: scale(10),
-        fontWeight: 'semibold',
+        fontWeight: '600',
     },
     buttonContainer: {
         flexDirection: 'row',

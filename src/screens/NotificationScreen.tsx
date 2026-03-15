@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         paddingVertical: verticalScale(15),
         borderBottomWidth: 1,
         borderBottomColor: '#F1F5F9',
-        marginTop: verticalScale(60)
+        marginTop: verticalScale(50)
     },
     backButton: {
         width: scale(40),
