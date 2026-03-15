@@ -361,11 +361,12 @@ const styles = StyleSheet.create({
 
     // Hero text
     heroTitle: {
-        fontSize: ms(28, 0.7),
+        fontSize: ms(26, 0.7),
         fontWeight: 'bold',
         color: '#FFF',
         lineHeight: ms(30, 0.7),
-        marginBottom: verticalScale(5),
+        marginBottom: verticalScale(1),
+        marginTop: verticalScale(-8),
     },
     heroSub: {
         fontSize: ms(14),

@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     },
     cardContent: {
         paddingHorizontal: scale(24),
-        paddingTop: verticalScale(26),
-        paddingBottom: verticalScale(20), // Reduced from 80
+        paddingTop: verticalScale(18),
+        paddingBottom: verticalScale(10), // Reduced from 80
         alignItems: 'center',
     },
     title: {
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: THEME.colors.secondary,
         textAlign: 'center',
-        marginBottom: verticalScale(2),
+        marginBottom: verticalScale(10),
     },
     subtitle: {
         fontSize: ms(16),
