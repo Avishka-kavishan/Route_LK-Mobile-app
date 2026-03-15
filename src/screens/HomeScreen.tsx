@@ -296,6 +296,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F8F9FE',
     },
     scrollContent: {
+        paddingTop: verticalScale(130),           // Space for overlap from the absolute header
         paddingBottom: verticalScale(48),
     },
 
@@ -303,11 +304,16 @@ const styles = StyleSheet.create({
     // ImageBackground itself — no padding here, the gradient overlay handles it
     // ImageBackground itself
     header: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
         width: '100%',
-        minHeight: verticalScale(240),
+        minHeight: verticalScale(240),            // Restored height
         borderBottomLeftRadius: scale(30),
         borderBottomRightRadius: scale(30),
         overflow: 'hidden',
+        zIndex: 0,
     },
     // The actual bus photo styling (covers the full ImageBackground)
     // The actual bus photo styling
@@ -315,7 +321,7 @@ const styles = StyleSheet.create({
     },
     gradientOverlay: {
         paddingTop: verticalScale(52),
-        paddingBottom: verticalScale(60),        // Extra bottom padding so search card overlaps nicely
+        paddingBottom: verticalScale(30),        // Reduced from 60
         paddingHorizontal: scale(24),
         flex: 1,
         justifyContent: 'flex-start',
@@ -361,12 +367,12 @@ const styles = StyleSheet.create({
 
     // Hero text
     heroTitle: {
-        fontSize: ms(26, 0.7),
+        fontSize: ms(24, 0.7), // Slightly smaller
         fontWeight: 'bold',
         color: '#FFF',
-        lineHeight: ms(30, 0.7),
+        lineHeight: ms(28, 0.7),
         marginBottom: verticalScale(1),
-        marginTop: verticalScale(-8),
+        marginTop: verticalScale(-12), // Pulled up more
     },
     heroSub: {
         fontSize: ms(14),
@@ -378,14 +384,17 @@ const styles = StyleSheet.create({
     searchCard: {
         backgroundColor: '#FFF',
         marginHorizontal: scale(16),
-        marginTop: verticalScale(-50),            // Pull up over header
+        marginTop: 0,                              // Removed negative margin to prevent clipping
         borderRadius: scale(20),
-        padding: scale(20),
+        paddingHorizontal: scale(20),
+        paddingTop: verticalScale(20),
+        paddingBottom: verticalScale(20),
         shadowColor: '#000',
         shadowOffset: { width: 0, height: verticalScale(6) },
-        shadowOpacity: 0.10,
-        shadowRadius: scale(16),
-        elevation: 8,
+        shadowOpacity: 0.1,
+        shadowRadius: scale(12),
+        zIndex: 20,                                // Higher zIndex to stay on top
+        elevation: 10,
     },
 
     // Field labels
