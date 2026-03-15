@@ -92,7 +92,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                 resizeMode="cover"
             >
                 <LinearGradient
-                    colors={['transparent', 'rgba(25, 39, 61, 0.55)', '#0f1923']}
+                    colors={['transparent', 'rgba(10, 20, 35, 0)', '#0f1923']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                     style={styles.gradientOverlay}
@@ -100,7 +100,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
                     <View style={styles.topBar}>
                         <View style={styles.logoRow}>
                             <View style={styles.logoBadge}>
-                                <Logo width={scale(35)} height={scale(35)} />
+                                <Logo width={scale(40)} height={scale(40)} />
                             </View>
                             <Text style={styles.brandText}>
                                 Route<Text style={styles.brandHighlight}>LK</Text>
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     },
     scrollContent: {
         paddingTop: verticalScale(130),           // Space for overlap from the absolute header
-        paddingBottom: verticalScale(48),
+        paddingBottom: verticalScale(20),
     },
 
     // ─── Header ───────────────────────────────────────────────────────────────
@@ -320,9 +320,9 @@ const styles = StyleSheet.create({
     headerImage: {
     },
     gradientOverlay: {
-        paddingTop: verticalScale(52),
+        paddingTop: verticalScale(54),
         paddingBottom: verticalScale(30),        // Reduced from 60
-        paddingHorizontal: scale(24),
+        paddingHorizontal: scale(20),
         flex: 1,
         justifyContent: 'flex-start',
     },
@@ -339,13 +339,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logoBadge: {
-        width: scale(34),
-        height: scale(34),
-        borderRadius: scale(10),
+        width: scale(40),
+        height: scale(40),
+        borderRadius: scale(8),
         backgroundColor: '#1e3a50',
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight: scale(8),
+        marginRight: scale(12),
     },
     brandText: {
         fontSize: ms(20),
@@ -370,9 +370,9 @@ const styles = StyleSheet.create({
         fontSize: ms(22, 0.7), // Slightly smaller
         fontWeight: 'bold',
         color: '#FFF',
-        lineHeight: ms(28, 0.7),
+        lineHeight: ms(24, 0.7),
         marginBottom: verticalScale(1),
-        marginTop: verticalScale(-12), // Pulled up more
+        marginTop: verticalScale(-10), // Pulled up more
     },
     heroSub: {
         fontSize: ms(14),

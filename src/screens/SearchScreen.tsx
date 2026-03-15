@@ -94,7 +94,7 @@ const SearchScreen = ({ navigation }: SearchScreenProps) => {
                 resizeMode="cover"
             >
                 <LinearGradient
-                    colors={['transparent', 'rgba(10,20,35,0.55)', '#0f1923']}
+                    colors={['transparent', 'rgba(10, 20, 35, 0)', '#0f1923']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                     style={styles.gradientOverlay}
